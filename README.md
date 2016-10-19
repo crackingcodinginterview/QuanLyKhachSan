@@ -1,9 +1,13 @@
-Cài đặt môi trường
+- Cài đặt môi trường
+
 npm install -g gulp
+
 npm install -g bower
 
 bower install
+
 npm install
 
-Chạy trương trình
+- Chạy trương trình
+
 gulp
