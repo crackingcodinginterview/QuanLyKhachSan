@@ -22,7 +22,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/gulp/bin/gulp scss"
+    "postinstall": "call ./node_modules/bower/bin/bower install && call ./node_modules/gulp/bin/gulp scss"
   },
   "author": "",
   "license": "ISC"
