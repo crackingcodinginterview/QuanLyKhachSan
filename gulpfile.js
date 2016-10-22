@@ -48,7 +48,7 @@ gulp.task('express', function () {
     var express = require('express');
     var app = express();
     var port = process.env.PORT || (argv.port || config.DEV_PORT);
-    var dir = argv.dir || '/';
+    var dir = argv.dir || '';
     var assetPath = path.join(__dirname, dir);
     app.use(require('connect-livereload')({port: config.LIVERELOAD_PORT}));
     app.use(express.static(assetPath));

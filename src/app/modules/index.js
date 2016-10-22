@@ -2,8 +2,11 @@ define(function(require){
     'use strict';
 
     return {
-        base: require('./base/base'),
+        base1: require('./base1/base1'),
+        base2: require('./base2/base2'),
         home: require('./home/home'),
-        test: require('./test/test')
+        login: require('./login/login'),
+        forgotpassword: require('./forgotpassword/forgotpassword'),
+        register: require('./register/register'),
     };
 });

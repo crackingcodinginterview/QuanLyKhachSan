@@ -2,26 +2,26 @@ define(function(require){
     'use strict';
 
     var angular = require('angular');
-    var module = angular.module('app.home', []);
-    var template = require('text!./templates/home.html');
-    var controller = require('./controllers/home');
+    var module = angular.module('app.register', []);
+    var template = require('text!./templates/register.html');
+    var controller = require('./controllers/register');
 
     //Đăng kí controller
     module.controller('HomeController', controller);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
-        $templateCache.put('home/templates/home.html', template);
+        $templateCache.put('register/templates/register.html', template);
     }
     module.run(run);
 
     config.$inject = ['$stateProvider'];
     function config($stateProvider){
-        $stateProvider.state('base1.home', {
-            url: '/',
+        $stateProvider.state('base2.register', {
+            url: '/auth/register',
             views: {
-                'base1': {
-                    templateUrl: 'home/templates/home.html',
+                'base2': {
+                    templateUrl: 'register/templates/register.html',
                     controller: 'HomeController'
                 }
             }
