@@ -20,6 +20,7 @@
     "angular-ui-router": "^0.3.1",
     "requirejs-plugins": "^1.0.3",
     "bootstrap": "^3.3.7",
-    "reset-css": "^2.2.0"
+    "reset-css": "^2.2.0",
+    "firebase": "^3.5.1"
   }
 }
