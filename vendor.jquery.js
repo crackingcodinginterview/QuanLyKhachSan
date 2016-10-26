@@ -11,9 +11,6 @@ require.config({
         'moment': 'bower_components/moment/src/moment',
     },
     shim: {
-        'moment': {
-            exports: 'moment'
-        },
         'firebase': {
             exports: 'firebase'
         },
@@ -26,6 +23,5 @@ require.config({
         'jquery',
         'firebase',
         'bootstrap',
-        'moment'
     ]
 });

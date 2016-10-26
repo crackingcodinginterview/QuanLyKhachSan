@@ -8,7 +8,6 @@ require.config({
         async: 'bower_components/requirejs-plugins/src/async',
 
         bootstrap: 'empty:',
-        moment: 'empty:',
 
         angular: 'empty:',
         uiRouter: 'empty:',

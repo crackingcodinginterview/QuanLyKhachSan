@@ -11,7 +11,6 @@ define(function(require){
     // var angularFullcalendar = require('angularFullcalendar');
 
     var bootstrap = require('bootstrap');
-    var moment = require('moment');
 
     var module = angular.module('app', [
         'ui.router',
