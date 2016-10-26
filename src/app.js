@@ -8,6 +8,7 @@ define(function(require){
     var uiRouter = require('uiRouter');
     var ngTable = require('ngTable');
     var angularBoostrap = require('angularBoostrap');
+    var angularFire = require('angularFire');
     // var angularFullcalendar = require('angularFullcalendar');
 
     var bootstrap = require('bootstrap');
@@ -16,6 +17,7 @@ define(function(require){
         'ui.router',
         'ngTable',
         'ui.bootstrap',
+        'firebase',
         // 'ui.calendar',
 
         appConfig,

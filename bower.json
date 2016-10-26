@@ -25,6 +25,7 @@
     "bootstrap-sass": "^3.3.7",
     "ng-table": "1.0.0",
     "angular-bootstrap": "^2.2.0",
-    "angular-ui-calendar": "^1.0.2"
+    "angular-ui-calendar": "^1.0.2",
+    "angularfire": "^2.1.0"
   }
 }

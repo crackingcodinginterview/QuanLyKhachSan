@@ -7,7 +7,7 @@ define(function(require){
     var controller = require('./controllers/register');
 
     //Đăng kí controller
-    module.controller('HomeController', controller);
+    module.controller('RegisterController', controller);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
@@ -22,7 +22,7 @@ define(function(require){
             views: {
                 'base2': {
                     templateUrl: 'register/templates/register.html',
-                    controller: 'HomeController'
+                    controller: 'RegisterController'
                 }
             }
         });
