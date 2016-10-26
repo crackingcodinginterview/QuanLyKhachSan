@@ -21,6 +21,10 @@
     "requirejs-plugins": "^1.0.3",
     "bootstrap": "^3.3.7",
     "reset-css": "^2.2.0",
-    "firebase": "^3.5.1"
+    "firebase": "^3.5.1",
+    "bootstrap-sass": "^3.3.7",
+    "ng-table": "1.0.0",
+    "angular-bootstrap": "^2.2.0",
+    "angular-ui-calendar": "^1.0.2"
   }
 }

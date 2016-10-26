@@ -1,0 +1,51 @@
+<div class="accounting col-md-12">
+    <h1 class="Fz(36px) Fw(500)">Accounting</h1>
+    <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
+    <form class="form-inline Mt(20px) Bdw(1px) Bds(s) Bdc(#ddd) P(15px) Bdrs(5px) Fz(18px)">
+        <div class="form-group">
+            <input type="text" class="form-control col-md-4 Fz(18px)" placeholder="Search Keywords">
+        </div>
+        <div class="form-group">
+            <select class="form-control col-md-4 Fz(18px)" name="customer_type_id">
+                <option value="">All Customer Types</option>
+                <option value="8746">Traveller</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="show_deleted" value="checked">
+            <label for="show_deleted" class="control-label Fz(18px)"> Show deleted customers</label>
+        </div>
+        <button type="submit" name="submit" value="search" class="btn btn-default background-graywhite Fz(18px)">Search Customers</button>
+        <button data-ng-click="vm.onCreateNewCustomer()" class="btn btn-default pull-right background-graywhite Fz(18px)">Create New Customer</button>
+    </form>
+    <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
+        <tr ng-repeat="user in $data">
+            <td title="'ID'" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="'Name'" filter="{ name: 'text'}" sortable="'name'" class="text-center">
+                {{user.name}}</td>
+            <td title="'Phone'" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="'Last check-out'" filter="{ name: 'text'}" sortable="'lastCheckOut'" class="text-center">
+                {{user.name}}</td>
+            <td title="'Charge Total'" filter="{ name: 'text'}" sortable="'chargeTotal'" class="text-center">
+                {{user.name}}</td>
+            <td title="'Payment Total'" filter="{ name: 'text'}" sortable="'paymentTotal'" class="text-center">
+                {{user.name}}</td>
+            <td title="'Balance'" filter="{ age: 'number'}" sortable="'balance'">
+                <div class="text-center">{{user.age}}</div>
+            </td>
+            <td title="''">
+                <div class="dropdown">
+                    <a href="#" data-ng-click="$event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><span class="caret"></span></a>
+                    <ul class="dropdown-menu Fz(16px)">
+                        <li><a href="#">How to Setup Roomsy</a></li>
+                        <li><a href="#">How to Use Roomsy</a></li>
+                        <li><a href="#">Support Center</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

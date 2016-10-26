@@ -7,8 +7,14 @@ require.config({
         text: 'bower_components/requirejs-plugins/lib/text',
         async: 'bower_components/requirejs-plugins/src/async',
 
+        bootstrap: 'empty:',
+        moment: 'empty:',
+
         angular: 'empty:',
         uiRouter: 'empty:',
+        ngTable: 'empty:',
+        angularBoostrap: 'empty:',
+        angularFullcalendar: 'empty:',
 
         firebase: 'empty:'
     },
@@ -46,7 +52,6 @@ require([
             firebase.auth().signInWithEmailAndPassword('aaaa@gmail.com', '123456').then(
                 function(result){
                     result.getToken().then(function(token){
-                        debugger;
                         $rootScope.userLoginToken = token;
                     });
                 }

@@ -6,10 +6,11 @@ var os = require('os');
 var path = require('path');
 var gulpOpen = require('gulp-open');
 var cssimport = require("gulp-cssimport");
+var acss = require('gulp-atomizer');
 var open = argv.open;
 var tinylr, currentVersion, nextVersion;
 var paths = {
-    scss: ['./scss/**/*.scss']
+    scss: ['./scss/**/*.scss'],
 };
 config = {
     DEV_PORT: 1234,
@@ -26,6 +27,12 @@ function notifyLiveReload(event) {
     });
 }
 
+gulp.task('acss', function() {
+    return gulp.src('./src/**/*.html')
+        .pipe(acss('atomic.scss'))
+        .pipe(gulp.dest('./scss'));
+});
+
 gulp.task('scss', function (done) {
     gulp.src('./scss/app.scss')
         .pipe(sass({
@@ -39,7 +46,8 @@ gulp.task('scss', function (done) {
 
 gulp.task('watch', function () {
     gulp.watch(paths.scss, ['scss']);
-    gulp.watch('./src/**/*.html', notifyLiveReload);
+    gulp.watch('./src/**/*.html', ['acss']);
+    // gulp.watch('./src/**/*.html', notifyLiveReload);
     gulp.watch('./src/css/*.css', notifyLiveReload);
 });
 
