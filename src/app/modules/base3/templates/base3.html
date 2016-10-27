@@ -31,9 +31,9 @@
                     <li><a href="../navbar-static-top/"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
                     <li class="dropdown">
                         <a href="#" data-ng-click="$event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false"><span class="glyphicon glyphicon-heart"></span> sliverwestlife4@gmail.com <span class="caret"></span></a>
+                           aria-expanded="false">sliverwestlife4@gmail.com <span class="caret"></span></a>
                         <ul class="dropdown-menu Fz(16px)">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+                            <li><a data-ui-sref="base3.accountsetting.password"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-home"></span> My Properties</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-tag"></span> My Subscription</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -43,5 +43,8 @@
             </div>
         </div>
     </nav>
-    <data-ui-view name="base3"></data-ui-view>
+    <data-ui-view name="base3" class="D(b)"></data-ui-view>
+</div>
+<div class="footer">
+    <p class="Ta(c)">Roomsy Inc. &copy; 2016</p>
 </div>

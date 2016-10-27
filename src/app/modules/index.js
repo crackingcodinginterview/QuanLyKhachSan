@@ -11,5 +11,6 @@ define(function(require){
         register: require('./register/register'),
         booking: require('./booking/booking'),
         accounting: require('./accounting/accounting'),
+        accountsetting: require('./accountsetting/accountsetting'),
     };
 });

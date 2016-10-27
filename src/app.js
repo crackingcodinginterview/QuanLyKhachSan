@@ -32,6 +32,7 @@ define(function(require){
         'app.register',
         'app.booking',
         'app.accounting',
+        'app.accountsetting',
     ]);
 
     return module;
