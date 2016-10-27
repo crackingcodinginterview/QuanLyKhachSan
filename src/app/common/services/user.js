@@ -4,13 +4,24 @@ define(function (require) {
 
     var module = angular.module('common.services.user', []);
 
-    service.$inject = [];
-    function service(){
+    service.$inject = ['$firebaseAuth'];
+    function service($firebaseAuth){
         //Nội dung service ở đây
         var service = {};
-        service.test = function(){
-            console.log('test');
+
+        function login(email, password){
+            return $firebaseAuth().$signInWithEmailAndPassword(email, password);
         }
+        function register(email, password){
+            return $firebaseAuth().$createUserWithEmailAndPassword(email, password);
+        }
+        function resetPassword(email){
+            return $firebaseAuth().$sendPasswordResetEmail(email);
+        }
+
+        service.login = login;
+        service.register = register;
+        service.resetPassword = resetPassword;
         return service;
     }
     module.factory('UserService', service);

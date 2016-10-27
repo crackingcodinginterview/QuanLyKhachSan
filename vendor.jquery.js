@@ -15,7 +15,7 @@ require.config({
             exports: 'firebase'
         },
         'bootstrap': {
-            deps: ['jquery']
+            deps: ['jquery'],
         },
     },
     exclude:[],

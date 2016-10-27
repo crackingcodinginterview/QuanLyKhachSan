@@ -3,12 +3,12 @@ define(function(require){
 
     var angular = require('angular');
     var appConfig = require('./app.config');
+    var appRun = require('./app.run');
     var appCommon = require('./app/common/index');
     var appModule = require('./app/modules/index');
     var uiRouter = require('uiRouter');
     var ngTable = require('ngTable');
     var angularBoostrap = require('angularBoostrap');
-    var angularFire = require('angularFire');
     // var angularFullcalendar = require('angularFullcalendar');
 
     var bootstrap = require('bootstrap');
@@ -17,11 +17,11 @@ define(function(require){
         'ui.router',
         'ngTable',
         'ui.bootstrap',
-        'firebase',
         // 'ui.calendar',
 
         appConfig,
         appCommon,
+        appRun,
 
         'app.base1',
         'app.base2',
