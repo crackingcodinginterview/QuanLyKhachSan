@@ -3,11 +3,12 @@ define(function(require){
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal'];
-    function ctrlFn($scope, NgTableParams, $uibModal){
+    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService'];
+    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService){
         //Nội dung của controller ghi ở đây
         console.log('đang ở AccountingController');
         var vm = this;
+        CustomerService.addNewCustomer({a: 'bbbb'});
         var data;
 
         function init(){
