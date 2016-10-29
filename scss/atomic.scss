@@ -55,6 +55,9 @@
 .D\(b\) {
   display: block;
 }
+.D\(ib\) {
+  display: inline-block;
+}
 .Fw\(500\) {
   font-weight: 500;
 }
@@ -118,6 +121,9 @@
 .Mstart\(5px\) {
   margin-left: 5px;
 }
+.Mstart\(10px\) {
+  margin-left: 10px;
+}
 .P\(15px\) {
   padding: 15px;
 }
@@ -153,6 +159,9 @@
 }
 .Ta\(s\) {
   text-align: start;
+}
+.Va\(m\) {
+  vertical-align: middle;
 }
 .W\(100\%\) {
   width: 100%;

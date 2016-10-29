@@ -12,5 +12,6 @@ define(function(require){
         booking: require('./booking/booking'),
         accounting: require('./accounting/accounting'),
         accountsetting: require('./accountsetting/accountsetting'),
+        property: require('./property/property'),
     };
 });

@@ -22,6 +22,7 @@ define(function(require){
                 templateUrl: 'accounting/templates/newCustomer.html',
                 controller: 'NewCustomerController',
                 controllerAs: 'vm',
+                size: 'sm'
             });
         }
         function onCreateNewCustomer(){
