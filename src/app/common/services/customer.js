@@ -24,7 +24,7 @@ define(function (require) {
          * @returns {*}
          */
         function getAllCustomer(){
-            return $firebaseArray(_ref);
+            return $firebaseArray(_ref).$loaded();
         }
 
         /**
