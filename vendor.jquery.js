@@ -4,11 +4,24 @@ require.config({
     generateSourceMaps: false,
     waitSeconds: 30, // timeout
     paths: {
-        jquery: 'bower_components/jquery/dist/jquery'
+        jquery: 'bower_components/jquery/dist/jquery',
+
+        'firebase': 'bower_components/firebase/firebase',
+        'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap',
+        'moment': 'bower_components/moment/src/moment',
     },
-    shim: {},
+    shim: {
+        'firebase': {
+            exports: 'firebase'
+        },
+        'bootstrap': {
+            deps: ['jquery'],
+        },
+    },
     exclude:[],
     include: [
-        'jquery'
+        'jquery',
+        'firebase',
+        'bootstrap',
     ]
 });

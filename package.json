@@ -4,9 +4,11 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "bower": "^1.7.9",
     "connect-livereload": "^0.6.0",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
+    "gulp-atomizer": "^1.0.7",
     "gulp-cssimport": "^4.0.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-open": "^2.0.0",
@@ -16,10 +18,13 @@
     "tiny-lr": "^1.0.2",
     "yargs": "^6.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-atomizer": "^1.0.7"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bash ./post_install.sh"
   },
   "author": "",
   "license": "ISC"

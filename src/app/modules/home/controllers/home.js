@@ -7,7 +7,6 @@ define(function(require){
     function ctrlFn($scope, UserService){
         //Nội dung của controller ghi ở đây
         console.log('đang ở home');
-        UserService.test();
     }
 
     return ctrlFn;

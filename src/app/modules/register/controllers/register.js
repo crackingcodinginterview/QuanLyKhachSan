@@ -3,11 +3,10 @@ define(function(require){
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope'];
-    function ctrlFn($scope){
+    ctrlFn.$inject = ['$scope', 'UserService', 'UserContext', 'ProfileService'];
+    function ctrlFn($scope, UserService, UserContext, ProfileService){
         //Nội dung của controller ghi ở đây
-        console.log('đang ở register');
+        var vm = this;
     }
-
     return ctrlFn;
 });

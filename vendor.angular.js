@@ -7,22 +7,39 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery',
         angular: 'bower_components/angular/angular',
 
-        uiRouter: 'bower_components/angular-ui-router/release/angular-ui-router'
+        firebase: 'bower_components/firebase/firebase',
+
+        uiRouter: 'bower_components/angular-ui-router/release/angular-ui-router',
+        ngTable: 'bower_components/ng-table/dist/ng-table',
+        angularBoostrap: 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
+        angularFire: 'bower_components/angularfire/dist/angularfire',
     },
     shim: {
+        'angularFire': {
+            deps: ['angular', 'firebase'],
+        },
         'angular': {
             deps: ['jquery'],
             exports: 'angular'
         },
         'uiRouter': {
             deps: ['angular']
-        }
+        },
+        'ngTable': {
+            deps: ['angular']
+        },
+        'angularBoostrap': {
+            deps: ['angular']
+        },
     },
     exclude:[
-        'jquery'
+        'jquery',
     ],
     include: [
         'angular',
-        'uiRouter'
+        'uiRouter',
+        'ngTable',
+        'angularBoostrap',
+        'angularFire'
     ]
 });

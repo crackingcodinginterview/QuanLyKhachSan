@@ -3,7 +3,9 @@ define(function (require) {
     var angular = require('angular');
 
     var module = angular.module('common.services', [
-        require('./user')
+        require('./user'),
+        require('./profile'),
+        require('./customer')
     ]);
     return module.name;
 });
