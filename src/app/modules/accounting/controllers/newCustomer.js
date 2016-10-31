@@ -38,7 +38,7 @@ define(function(require) {
         }
 
         $scope.cancel = function() {
-            console.log("close");
+            this.close;
         }
 
 

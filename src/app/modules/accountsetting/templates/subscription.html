@@ -8,27 +8,27 @@
         </div>
         <div class="form-group">
             <label for="" class="control-label">Please select your region</label>
-            <select class="form-control Mt(5px)" name="region" id="region">
-                <option value="">North America</option>
+            <select class="form-control Mt(5px)" name="region" id="region" ng-model="vm.region">
+                <option selected="selected" value="NA">North America</option>
                 <option value="ANZ">Australia and New Zealand</option>
                 <option value="ASIA">Asia</option>
-                <option value="">Europe and Africa</option>
+                <option value="EA">Europe and Africa</option>
             </select>
         </div>
         <div class="form-group Mt(20px)">
             <p>Please select plan</p>
             <div class="radio">
-                <label><input type="radio" name="optradio">Option 1</label>
+                <label><input type="radio" checked="vm.basic" ng-click="vm.basicFuntion()" name="optradio">Basic</label>
             </div>
             <div class="radio">
-                <label><input type="radio" name="optradio">Option 1</label>
+                <label><input type="radio" checked="vm.monthly" ng-click="vm.monthlyFuntion()" name="optradio">Premium-monthly</label>
             </div>
             <div class="radio">
-                <label><input type="radio" name="optradio">Option 1</label>
+                <label><input type="radio" checked="vm.yearly" ng-click="vm.yearlyFuntion()" name="optradio">Premium-yearly</label>
             </div>
         </div>
         <div class="form-group Mt(20px)">
-            <button class="btn btn-primary">Sign Up</button>
+            <button class="btn btn-primary"ng-click="vm.ok()">Sign Up</button>
         </div>
     </form>
 </div>

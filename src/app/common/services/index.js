@@ -5,7 +5,8 @@ define(function (require) {
     var module = angular.module('common.services', [
         require('./user'),
         require('./profile'),
-        require('./customer')
+        require('./customer'),
+        require('./subscription')
     ]);
     return module.name;
 });
