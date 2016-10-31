@@ -2,32 +2,31 @@ define(function (require) {
     'use strict';
     var angular = require('angular');
 
-    var module = angular.module('common.context.customer', []);
+    var module = angular.module('common.context.member', []);
 
     service.$inject = ['$firebaseArray', '$firebaseObject'];
     function service($firebaseArray, $firebaseObject){
         //Nội dung service ở đây
         var service = {};
-        var _ref = firebase.database().ref('khachhang');
+        var _ref = firebase.database().ref('thanhvien');
 
         /**
          * Lấy thông tin của một customer cụ thể. Truyền vào customerId (Id là cái firebase nó tạo ra ấy)
          * @param customerId
          * @returns {*}
          */
-        function getCustomerById(customerId){
-            return $firebaseObject(_ref.child(customerId));
-        }
 
         /**
          * Lấy toàn bộ thông tin của customer về dưới dạng mảng
          * @returns {*}
          */
-        function getAllCustomer(){
-            return $firebaseArray(_ref).$loaded();
+        function getMember(){
+            return $firebaseObject(_ref).$loaded();
         }
 
-
+        function saveData(data) {
+          return data.$save();
+        }
         /**
          * Truyền vào 1 object chứa dữ liệu thông tin của customer. Vd như { name: 'AAA', phone: 'aaaa' }
          * Nó sẽ thực hiện add customer đó vào bảng customer
@@ -36,16 +35,13 @@ define(function (require) {
          * @param customerData
          * @returns {firebase.database.ThenableReference|!firebase.database.ThenableReference}
          */
-        function addNewCustomer(customerData){
-            return _ref.push(customerData);
-        }
-        service.addNewCustomer = addNewCustomer;
-        service.getCustomerById = getCustomerById;
-        service.getAllCustomer = getAllCustomer;
+
+        service.getMember = getMember;
+        service.saveData = saveData;
 
         return service;
     }
-    module.factory('CustomerService', service);
+    module.factory('MemberService', service);
 
     return module.name;
 });
