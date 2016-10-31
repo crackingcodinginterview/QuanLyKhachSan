@@ -6,34 +6,34 @@
     <div class="modal-body">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="" class="control-label col-md-3 Fw(600)">Property Name</label>
+                <label class="control-label col-md-3 Fw(600)">Property Name</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control"  ng-model="property.name" >
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="control-label col-md-3 Fw(600)">Number of Rooms</label>
+                <label  class="control-label col-md-3 Fw(600)">Number of Rooms</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" ng-model="property.rooms">
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="control-label col-md-3 Fw(600)">Region</label>
+                <label  class="control-label col-md-3 Fw(600)">Region</label>
                 <div class="col-md-9">
-                    <select class="form-control">
-                        <option value="8746">North America</option>
-                        <option value="8746">Australia and New Zealand</option>
-                        <option value="8746">Asia</option>
-                        <option value="8746">Europe and Africa</option>
+                    <select class="form-control" ng-model="property.region">
+                        <option value="North America">North America</option>
+                        <option value="Australia and New Zealand">Australia and New Zealand</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe and Africa">Europe and Africa</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="control-label col-md-3 Fw(600)">Pricing Plan</label>
+                <label  class="control-label col-md-3 Fw(600)">Pricing Plan</label>
                 <div class="col-md-9">
-                    <select class="form-control">
-                        <option value="8746">Basic</option>
-                        <option value="8746">Premium</option>
+                    <select class="form-control" ng-model="property.Pricing">
+                        <option value="Basic">Basic</option>
+                        <option value="Premium">Premium</option>
                     </select>
                 </div>
             </div>
