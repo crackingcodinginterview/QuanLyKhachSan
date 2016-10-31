@@ -3,10 +3,24 @@ define(function(require){
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', '$uibModalInstance'];
-    function ctrlFn($scope, $uibModalInstance){
-        
+    NewPropertyController.$inject = ['$scope', '$uibModalInstance', 'PropertyService'];
+    function NewPropertyController($scope, $uibModalInstance, PropertyService){
+      $scope.property;
+        $scope.ok = function (propert) {
+          PropertyService.addNewProperty($scope.property)
+              .then(function(resp) {
+                  console.log("Add property Success", resp);
+                  this.close;
+              })
+              .catch(function(error) {
+                  console.log("Add property Error", error);
+              });
+        }
+
+                $scope.cancel = function() {
+                    this.close;
+                }
     }
 
-    return ctrlFn;
+    return NewPropertyController;
 });

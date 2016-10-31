@@ -6,7 +6,8 @@ define(function (require) {
         require('./user'),
         require('./profile'),
         require('./customer'),
-        require('./subscription')
+        require('./subscription'),
+        require('./property')
     ]);
     return module.name;
 });
