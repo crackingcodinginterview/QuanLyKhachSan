@@ -9,39 +9,35 @@ define(function(require) {
         //Nội dung của controller ghi ở đây
         console.log('đang ở AccountingController');
         var vm = this;
-        // CustomerService.addNewCustomer({
-        //     a: 'bbbb'
-        // });
         var data = [];
         var dataSearch = [];
         var dataRoot = [];
         vm.keySearch;
 
         vm.search = function() {
-                if (vm.keySearch != null && vm.keySearch != '') {
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].name.indexOf(vm.keySearch) > -1 || data[i].$id.indexOf(vm.keySearch) > -1 ||
-                            data[i].phone.indexOf(vm.keySearch) > -1 || data[i].customerType.indexOf(vm.keySearch) > -1) {
-                            dataSearch.push(data[i]);
-                        }
+            if (vm.keySearch != null && vm.keySearch != '') {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].name.indexOf(vm.keySearch) > -1 || data[i].$id.indexOf(vm.keySearch) > -1 ||
+                        data[i].phone.indexOf(vm.keySearch) > -1 || data[i].customerType.indexOf(vm.keySearch) > -1) {
+                        dataSearch.push(data[i]);
                     }
-                    if (dataSearch.length === 0) {
-                      console.log("not found customer!!!");
-                    } else {
-                        data = dataSearch;
-                        vm.tableParams = new NgTableParams({}, {
-                            dataset: data
-                        });
-                        dataSearch = [];
-                        data = dataRoot;
-                    }
-
-                } else {
-                    dataSearch = [];
-                    init()
-
                 }
+                if (dataSearch.length === 0) {
+                    console.log("not found customer!!!");
+                } else {
+                    data = dataSearch;
+                    vm.tableParams = new NgTableParams({}, {
+                        dataset: data
+                    });
+                    dataSearch = [];
+                    data = dataRoot;
+                }
+
+            } else {
+                dataSearch = [];
+                init();
             }
+        }
 
         function init() {
             CustomerService.getAllCustomer()
