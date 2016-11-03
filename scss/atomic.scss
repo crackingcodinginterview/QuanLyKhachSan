@@ -31,8 +31,17 @@
 .Bdrststart\(4px\) {
   border-top-left-radius: 4px;
 }
+.Bgc\(\#ddd\) {
+  background-color: #ddd;
+}
+.Bgc\(white\) {
+  background-color: white;
+}
 .Bgc\(\#334455\) {
   background-color: #334455;
+}
+.C\(\#000\) {
+  color: #000;
 }
 .C\(\#fff\) {
   color: #fff;
@@ -45,6 +54,9 @@
 }
 .D\(b\) {
   display: block;
+}
+.D\(ib\) {
+  display: inline-block;
 }
 .Fw\(500\) {
   font-weight: 500;
@@ -61,11 +73,11 @@
 .Fz\(16px\) {
   font-size: 16px;
 }
-.Fz\(20px\) {
-  font-size: 20px;
-}
 .Fz\(30px\) {
   font-size: 30px;
+}
+.Fz\(20px\) {
+  font-size: 20px;
 }
 .Fz\(22px\) {
   font-size: 22px;
@@ -76,17 +88,23 @@
 .My\(20px\) {
   margin-bottom: 20px;
 }
-.Mt\(80px\) {
-  margin-top: 80px;
+.Mt\(-20px\) {
+  margin-top: -20px;
 }
 .Mt\(5px\) {
   margin-top: 5px;
+}
+.Mt\(80px\) {
+  margin-top: 80px;
 }
 .Mt\(10px\) {
   margin-top: 10px;
 }
 .Mt\(40px\) {
   margin-top: 40px;
+}
+.Mb\(240px\) {
+  margin-bottom: 240px;
 }
 .Mb\(80px\) {
   margin-bottom: 80px;
@@ -100,15 +118,33 @@
 .Mb\(5px\) {
   margin-bottom: 5px;
 }
+.Mstart\(5px\) {
+  margin-left: 5px;
+}
+.Mstart\(10px\) {
+  margin-left: 10px;
+}
 .P\(15px\) {
   padding: 15px;
 }
 .P\(20px\) {
   padding: 20px;
 }
+.Px\(150px\) {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.Px\(15px\) {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .Px\(20px\) {
   padding-left: 20px;
   padding-right: 20px;
+}
+.Py\(8px\) {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .Py\(10px\) {
   padding-top: 10px;
@@ -123,6 +159,9 @@
 }
 .Ta\(s\) {
   text-align: start;
+}
+.Va\(m\) {
+  vertical-align: middle;
 }
 .W\(100\%\) {
   width: 100%;
