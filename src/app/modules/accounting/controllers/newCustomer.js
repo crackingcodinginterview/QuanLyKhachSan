@@ -24,21 +24,22 @@ define(function(require) {
             creditCardDate: '',
             cvc: '',
             note: ''
-        }
+        };
 
 
         $scope.ok = function() {
             CustomerService.addNewCustomer($scope.Customer)
                 .then(function(resp) {
+                    $uibModalInstance.close();
                     console.log("Add Customer Success", resp);
                 })
                 .catch(function(error) {
                     console.log("Add Customer Error", error);
                 });
-        }
+        };
 
         $scope.cancel = function() {
-            this.close;
+            $uibModalInstance.close();
         }
 
 

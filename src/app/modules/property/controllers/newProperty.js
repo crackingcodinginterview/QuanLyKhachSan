@@ -5,21 +5,21 @@ define(function(require){
 
     NewPropertyController.$inject = ['$scope', '$uibModalInstance', 'PropertyService'];
     function NewPropertyController($scope, $uibModalInstance, PropertyService){
-      $scope.property;
+        $scope.property;
         $scope.ok = function (propert) {
-          PropertyService.addNewProperty($scope.property)
-              .then(function(resp) {
-                  console.log("Add property Success", resp);
-                  this.close;
-              })
-              .catch(function(error) {
-                  console.log("Add property Error", error);
-              });
-        }
+            PropertyService.addNewProperty($scope.property)
+                .then(function(resp) {
+                    console.log("Add property Success", resp);
+                    $uibModalInstance.close();
+                })
+                .catch(function(error) {
+                    console.log("Add property Error", error);
+                });
+        };
 
-                $scope.cancel = function() {
-                    this.close;
-                }
+        $scope.cancel = function() {
+            $uibModalInstance.close();
+        }
     }
 
     return NewPropertyController;
