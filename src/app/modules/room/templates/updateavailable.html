@@ -1,0 +1,25 @@
+<div class="updateavailable">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" data-ng-click="cancel()">×</a>
+        <h4>Manually update availabilities for all channels</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="email">Update availabilities between</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="email">and</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="email">(Maximum once in every 5 minutes)</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success background-blue" ng-click="ok()">Update</button>
+        <button class="btn background-graywhite" ng-click="cancel()">Close</button>
+    </div>
+</div>

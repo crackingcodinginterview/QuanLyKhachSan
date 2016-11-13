@@ -9,6 +9,7 @@ define(function(require){
     var uiRouter = require('uiRouter');
     var ngTable = require('ngTable');
     var angularBoostrap = require('angularBoostrap');
+    var angularMoment = require('angularMoment');
     // var angularFullcalendar = require('angularFullcalendar');
 
     var bootstrap = require('bootstrap');
@@ -17,6 +18,7 @@ define(function(require){
         'ui.router',
         'ngTable',
         'ui.bootstrap',
+        'angularMoment',
         // 'ui.calendar',
 
         appConfig,
@@ -34,6 +36,7 @@ define(function(require){
         'app.accounting',
         'app.accountsetting',
         'app.property',
+        'app.room',
     ]);
 
     return module;

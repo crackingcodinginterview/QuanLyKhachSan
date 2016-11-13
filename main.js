@@ -15,7 +15,8 @@ require.config({
         angularBoostrap: 'empty:',
         angularFullcalendar: 'empty:',
 
-        angularFire: 'empty:'
+        angularFire: 'empty:',
+        angularMoment: 'empty:'
     },
 
     shim: {},
