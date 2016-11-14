@@ -4,29 +4,24 @@ define(function (require) {
 
     var module = angular.module('common.context.user', []);
 
-    service.$inject = ['$firebaseArray', '$firebaseObject'];
-    function service($firebaseArray, $firebaseObject){
+    service.$inject = ['$firebaseArray', '$firebaseObject', '$firebaseAuth'];
+    function service($firebaseArray, $firebaseObject, $firebaseAuth){
         //Nội dung service ở đây
         var service = {};
-        var _currentUser;
 
         function getUserId(){
-            return _currentUser.uid;
+            return $firebaseAuth().$getAuth().uid;
         }
         function isAuth(){
-            return angular.isString(_currentUser.uid);
-        }
-        function fillContext(currentUser){
-            _currentUser = currentUser;
+            return $firebaseAuth().$getAuth();
         }
         function signOut(){
-            return _currentUser.$signOut();
+            return $firebaseAuth().$signOut();
         }
         function changePassword(newPassword){
-            return _currentUser.$updatePassword(newPassword);
+            return $firebaseAuth().$updatePassword(newPassword);
         }
 
-        service.fillContext = fillContext;
         service.getUserId = getUserId;
         service.signOut = signOut;
         service.changePassword = changePassword;

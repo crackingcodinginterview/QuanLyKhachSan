@@ -11,7 +11,7 @@ define(function(require) {
         $scope.password = '';
         $scope.login = function() {
                 if ($scope.email != '' && $scope.password.length >= 6) {
-                    UserService.login($scope.email, $scope.password).then(function(success) {
+                    UserService.login($scope.email, $scope.password).then(function(curentUser) {
                         $state.go('base3.booking'); //test di
                     }, function(err) {
                         console.log(err);
