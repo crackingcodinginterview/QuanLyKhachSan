@@ -28,7 +28,9 @@ define(function(require){
                 'base3': {
                     templateUrl: 'accounting/templates/accounting.html',
                     controller: 'AccountingController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    resolve: {
+                    }
                 }
             }
         });
