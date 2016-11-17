@@ -8,8 +8,10 @@ define(function(require){
     var languageTemplate = require('text!./templates/language.html');
     var subscriptionTemplate = require('text!./templates/subscription.html');
     var controller = require('./controllers/subscription');
+    var passwordController = require('./controllers/password');
 
-    module.controller('subscription', controller);
+    module.controller('SubscriptionController', controller);
+    module.controller('PasswordController', passwordController);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
@@ -38,6 +40,7 @@ define(function(require){
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/password.html',
+                        controller: 'PasswordController'
                     }
                 }
             })
@@ -56,7 +59,7 @@ define(function(require){
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/subscription.html',
-                        controller: 'subscription',
+                        controller: 'SubscriptionController',
                         controllerAs: 'vm'
                     }
                 }
