@@ -20,18 +20,17 @@ define(function(require){
             oobCode = $state.params.oobCode;
         }
         function confirmChangePassword(confirmNewPasswordViewModel){
-            return firebase.auth().confirmPasswordReset(oobCode, confirmNewPasswordViewModel.newPassword);
+            return UserService.confirmChangePassword(oobCode, confirmNewPasswordViewModel);
         }
         function onAcceptButton_Click(){
             ajaxLoadingFactory.show();
             confirmChangePassword(vm.confirmNewPasswordForm.data)
-                .then(function(resp){
+                .then(function(){
                     toaster.pop('success', 'Note', 'Change password success!');
+                    ajaxLoadingFactory.hide();
                 })
                 .catch(function(error){
                     toaster.pop('error', 'Note', 'Something Went Wrong!');
-                })
-                .finally(function(resp){
                     ajaxLoadingFactory.hide();
                 });
         }
