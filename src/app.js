@@ -42,6 +42,8 @@ define(function(require){
         'app.accountsetting',
         'app.property',
         'app.room',
+        'app.externalaction',
+        'app.confirmnewpassword',
     ]);
 
     return module;
