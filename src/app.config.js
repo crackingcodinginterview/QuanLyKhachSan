@@ -1,16 +1,21 @@
 define(function(require){
     'use strict';
-    
+
     var angular = require('angular');
+    var _ = require('lodash');
     var module = angular.module('app.config', []);
 
-    appConfig.$inject = ['$locationProvider', '$urlRouterProvider'];
-    function appConfig($locationProvider, $urlRouterProvider){
+    appConfig.$inject = ['$locationProvider', '$urlRouterProvider', 'localStorageServiceProvider'];
+    function appConfig($locationProvider, $urlRouterProvider, localStorageServiceProvider){
         $locationProvider.html5Mode({
             enabled: false,
             requireBase: false
         });
         $urlRouterProvider.otherwise('/');
+        localStorageServiceProvider
+            .setPrefix('quanlykhachsan')
+            .setStorageType('sessionStorage')
+            .setNotify(false, false);
     }
     module.config(appConfig);
 

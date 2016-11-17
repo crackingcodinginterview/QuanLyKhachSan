@@ -25,22 +25,49 @@
         <div class="col-md-6">
             <div class="Bds(s) Bdw(1px) Bdc(#ddd) Bdrs(5px)">
                 <h2 class="background-lightgreen Py(10px) C(#3c763d) Fz(18px)">Please tell us about you</h2>
-                <form class="Px(20px) My(20px)">
+                <form class="Px(20px) My(20px)"
+                      name="vm.registerForm.$selector"
+                      novalidate>
                     <div class="form-group">
-                        <input type="text" class="form-control Fz(22px) Py(22px)" placeholder="First Name">
+                        <input type="text"
+                               name="firstName"
+                               data-ng-model="vm.registerForm.data.firstName"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="First Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control Fz(22px) Py(22px)" placeholder="Last Name">
+                        <input type="text"
+                               name="lastName"
+                               data-ng-model="vm.registerForm.data.lastName"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Last Name">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control Fz(22px) Py(22px)" placeholder="Email">
+                        <input type="email"
+                               name="email"
+                               data-ng-model="vm.registerForm.data.email"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Email"
+                               data-ng-model="vm.registerForm.data.email">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control Fz(22px) Py(22px)" placeholder="Property Name">
+                        <input type="text"
+                               data-ng-model="vm.registerForm.data.password"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <select class="form-control Fz(22px) Py(22px)">
-                            <option value="0">Select Your Country</option>
+                        <input type="text"
+                               name="propertyName"
+                               data-ng-model="vm.registerForm.data.propertyName"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Property Name">
+                    </div>
+                    <div class="form-group">
+                        <select name="country"
+                                data-ng-model="vm.registerForm.data.country"
+                                class="form-control">
+                            <option value='0'>Select Your Country</option>
                             <option value="Afghanistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
                             <option value="Algeria">Algeria</option>
@@ -283,12 +310,23 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control Fz(22px) Py(22px)" placeholder="Number of Rooms">
+                        <input type="text"
+                               name="numerRoom"
+                               data-ng-model="vm.registerForm.data.numerRoom"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Number of Rooms">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control Fz(22px) Py(22px)" placeholder="Phone Number (with Country Code)">
+                        <input type="text"
+                               name="phoneNumber"
+                               data-ng-model="vm.registerForm.data.phoneNumber"
+                               class="form-control Fz(22px) Py(22px)"
+                               placeholder="Phone Number (with Country Code)">
                     </div>
-                    <button type="submit" class="btn btn-default background-blue Fz(22px) Fw(500) W(100%) C(#fff) background-green">Request for a Demo</button>
+                    <button type="submit"
+                            data-ng-disabled="false"
+                            data-ng-click="vm.onButtonRegister_click()"
+                            class="btn btn-default background-blue Fz(22px) Fw(500) W(100%) C(#fff) background-green">Request for a Demo</button>
                 </form>
             </div>
         </div>

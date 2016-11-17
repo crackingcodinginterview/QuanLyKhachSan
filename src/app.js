@@ -10,7 +10,10 @@ define(function(require){
     var ngTable = require('ngTable');
     var angularBoostrap = require('angularBoostrap');
     var angularMoment = require('angularMoment');
-    // var angularFullcalendar = require('angularFullcalendar');
+    var angularAnimate = require('angularAnimate');
+    var angularToaster = require('angularToaster');
+    var angularLocalStorage = require('angularLocalStorage');
+    var angularLoadingBar = require('angularLoadingBar');
 
     var bootstrap = require('bootstrap');
 
@@ -19,7 +22,9 @@ define(function(require){
         'ngTable',
         'ui.bootstrap',
         'angularMoment',
-        // 'ui.calendar',
+        'ngAnimate',
+        'toaster',
+        'LocalStorageModule',
 
         appConfig,
         appCommon,

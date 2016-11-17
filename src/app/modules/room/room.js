@@ -44,6 +44,7 @@ define(function(require){
             })
             .state('base3.room.status', {
                 url: '/room',
+                authorization: true,
                 views: {
                     'room': {
                         templateUrl: 'room/templates/room.status.html',
@@ -53,6 +54,7 @@ define(function(require){
             })
             .state('base3.room.inventory', {
                 url: '/room/inventory',
+                authorization: true,
                 views: {
                     'room': {
                         templateUrl: 'room/templates/room.inventory.html',

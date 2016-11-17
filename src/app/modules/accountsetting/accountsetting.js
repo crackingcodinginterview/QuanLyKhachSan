@@ -34,6 +34,7 @@ define(function(require){
             })
             .state('base3.accountsetting.password', {
                 url: '/account_settings/password',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/password.html',
@@ -42,6 +43,7 @@ define(function(require){
             })
             .state('base3.accountsetting.language', {
                 url: '/account_settings/language',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/language.html',
@@ -50,6 +52,7 @@ define(function(require){
             })
             .state('base3.accountsetting.subscription', {
                 url: '/account_settings/subscription',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/subscription.html',

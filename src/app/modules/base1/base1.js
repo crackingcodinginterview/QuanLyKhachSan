@@ -16,7 +16,7 @@ define(function(require){
         $stateProvider.state('base1', {
             url: '',
             abstract: true,
-            templateUrl: 'base1/templates/base1.html'
+            templateUrl: 'base1/templates/base1.html',
         });
     }
     module.config(config);

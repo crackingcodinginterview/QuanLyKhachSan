@@ -15,6 +15,10 @@ require.config({
         angularBoostrap: 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
         angularFire: 'bower_components/angularfire/dist/angularfire',
         angularMoment: 'bower_components/angular-moment/angular-moment',
+        angularAnimate: 'bower_components/angular-animate/angular-animate',
+        angularToaster: 'bower_components/AngularJS-Toaster/toaster',
+        angularLocalStorage: 'bower_components/angular-local-storage/dist/angular-local-storage',
+        angularLoadingBar: 'bower_components/angular-loading-bar/build/loading-bar'
     },
     shim: {
         'angularFire': {
@@ -39,6 +43,18 @@ require.config({
         'angularMoment': {
             deps: ['moment', 'angular']
         },
+        'angularAnimate': {
+            deps: ['angular']
+        },
+        'angularToaster': {
+            deps: ['angularAnimate']
+        },
+        'angularLocalStorage': {
+            deps: ['angular']
+        },
+        'angularLoadingBar': {
+            deps: ['angularAnimate']
+        }
     },
     exclude:[
         'jquery',
@@ -49,6 +65,10 @@ require.config({
         'ngTable',
         'angularBoostrap',
         'angularFire',
-        'angularMoment'
+        'angularMoment',
+        'angularAnimate',
+        'angularToaster',
+        'angularLocalStorage',
+        'angularLoadingBar'
     ]
 });

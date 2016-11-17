@@ -6,6 +6,7 @@ define(function (require){
     var module = angular.module('common.index', [
         'firebase',
         require('./services/index'),
+        require('./directives/index'),
         require('./context/index'),
     ]);
 

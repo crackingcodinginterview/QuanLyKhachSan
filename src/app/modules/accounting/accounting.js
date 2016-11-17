@@ -23,6 +23,7 @@ define(function(require){
     function config($stateProvider){
         $stateProvider.state('base3.accounting', {
             url: '/customer/show_customers',
+            authorization: true,
             views: {
                 'base3': {
                     templateUrl: 'accounting/templates/accounting.html',

@@ -5,6 +5,7 @@ require.config({
     waitSeconds: 30, // timeout
     paths: {
         jquery: 'bower_components/jquery/dist/jquery',
+        lodash: 'bower_components/lodash/dist/lodash',
 
         'firebase': 'bower_components/firebase/firebase',
         'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap',
@@ -17,11 +18,15 @@ require.config({
         'bootstrap': {
             deps: ['jquery'],
         },
+        'lodash': {
+            exports: '_'
+        },
     },
     exclude:[],
     include: [
         'jquery',
         'firebase',
         'bootstrap',
+        'lodash'
     ]
 });

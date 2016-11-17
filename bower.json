@@ -27,6 +27,10 @@
     "angular-bootstrap": "^2.2.0",
     "angular-ui-calendar": "^1.0.2",
     "angularfire": "^2.1.0",
-    "angular-moment": "^1.0.0"
+    "angular-moment": "^1.0.0",
+    "AngularJS-Toaster": "angularjs-toaster#^2.1.0",
+    "lodash": "^4.17.2",
+    "angular-local-storage": "^0.5.2",
+    "angular-loading-bar": "^0.9.0"
   }
 }

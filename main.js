@@ -7,6 +7,7 @@ require.config({
         text: 'bower_components/requirejs-plugins/lib/text',
         async: 'bower_components/requirejs-plugins/src/async',
 
+        lodash: 'empty:',
         bootstrap: 'empty:',
 
         angular: 'empty:',
@@ -16,7 +17,11 @@ require.config({
         angularFullcalendar: 'empty:',
 
         angularFire: 'empty:',
-        angularMoment: 'empty:'
+        angularMoment: 'empty:',
+        angularToaster: 'empty:',
+        angularAnimate: 'empty:',
+        angularLocalStorage: 'empty:',
+        angularLoadingBar: 'empty:',
     },
 
     shim: {},

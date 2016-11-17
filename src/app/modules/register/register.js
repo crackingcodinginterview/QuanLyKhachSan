@@ -22,7 +22,8 @@ define(function(require){
             views: {
                 'base2': {
                     templateUrl: 'register/templates/register.html',
-                    controller: 'RegisterController'
+                    controller: 'RegisterController',
+                    controllerAs: 'vm',
                 }
             }
         });
