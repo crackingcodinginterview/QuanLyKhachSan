@@ -14,5 +14,6 @@ define(function(require){
         accountsetting: require('./accountsetting/accountsetting'),
         property: require('./property/property'),
         room: require('./room/room'),
+        external: require('./external/external'),
     };
 });
