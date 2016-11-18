@@ -6,7 +6,7 @@ define(function(require){
     function ctrlFn($scope, $state){
         switch ($state.params.mode.toLowerCase()){
             case "resetpassword": {
-                $state.go('base2.confirmnewpassword', {oobCode: $state.params.oobCode});
+                $state.go('base2.confirmpassword', {oobCode: $state.params.oobCode});
             }
                 break;
 

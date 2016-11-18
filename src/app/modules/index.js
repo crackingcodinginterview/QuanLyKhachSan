@@ -15,5 +15,6 @@ define(function(require){
         property: require('./property/property'),
         room: require('./room/room'),
         external: require('./external/external'),
+        confirmpassword: require('./confirmpassword/confirmpassword'),
     };
 });

@@ -43,6 +43,7 @@ define(function(require){
         'app.property',
         'app.room',
         'app.external',
+        'app.confirmpassword',
     ]);
 
     return module;
