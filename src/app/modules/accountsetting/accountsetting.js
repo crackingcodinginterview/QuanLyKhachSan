@@ -8,8 +8,10 @@ define(function(require){
     var languageTemplate = require('text!./templates/language.html');
     var subscriptionTemplate = require('text!./templates/subscription.html');
     var controller = require('./controllers/subscription');
+    var passwordController = require('./controllers/password');
 
-    module.controller('subscription', controller);
+    module.controller('SubscriptionController', controller);
+    module.controller('PasswordController', passwordController);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
@@ -34,14 +36,17 @@ define(function(require){
             })
             .state('base3.accountsetting.password', {
                 url: '/account_settings/password',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/password.html',
+                        controller: 'PasswordController'
                     }
                 }
             })
             .state('base3.accountsetting.language', {
                 url: '/account_settings/language',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/language.html',
@@ -50,10 +55,11 @@ define(function(require){
             })
             .state('base3.accountsetting.subscription', {
                 url: '/account_settings/subscription',
+                authorization: true,
                 views: {
                     'accountsetting': {
                         templateUrl: 'accountsetting/templates/subscription.html',
-                        controller: 'subscription',
+                        controller: 'SubscriptionController',
                         controllerAs: 'vm'
                     }
                 }

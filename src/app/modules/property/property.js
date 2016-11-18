@@ -23,6 +23,7 @@ define(function(require){
     function config($stateProvider){
         $stateProvider.state('base3.property', {
             url: '/properties/my_properties',
+            authorization: true,
             views: {
                 'base3': {
                     templateUrl: 'property/templates/property.html',

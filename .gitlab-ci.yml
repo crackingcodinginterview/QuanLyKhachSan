@@ -4,7 +4,6 @@ staging:
   - apt-get update -qy
   - apt-get install -y ruby-dev
   - gem install dpl
-#  - dpl --provider=heroku --app=quanlykhachsan --api-key=$HEROKU_STAGING_API_KEY
   - dpl --provider=heroku --app=quanlykhachsan --api-key=8a2e50e0-a928-456e-b9e5-860e4d59046f
   only:
   - development
@@ -15,6 +14,6 @@ production:
   - apt-get update -qy
   - apt-get install -y ruby-dev
   - gem install dpl
-  - dpl --provider=heroku --app=production-quanlykhachsan --api-key=$HEROKU_PRODUCTION_API_KEY
+  - dpl --provider=heroku --app=production-quanlykhachsan --api-key=8a2e50e0-a928-456e-b9e5-860e4d59046f
   only:
   - master

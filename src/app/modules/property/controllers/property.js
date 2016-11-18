@@ -3,8 +3,8 @@ define(function(require){
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'PropertyService'];
-    function ctrlFn($scope, NgTableParams, $uibModal, PropertyService) {
+    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'PropertyService', 'toaster', 'ajaxLoadingFactory'];
+    function ctrlFn($scope, NgTableParams, $uibModal, PropertyService, toaster, ajaxLoadingFactory) {
         var vm = this;
         //Nội dung của controller ghi ở đây
         console.log('đang ở property');
@@ -19,8 +19,12 @@ define(function(require){
             });
         }
         function onCreateNewProperty(){
-            getNewProperty().result.then(function(){
+            getNewProperty().result.then(function(success){
+                toaster.pop('success', 'Note', 'Login success!');
                 debugger;
+            }, function (err) {
+              toaster.pop('error', 'Note', 'Error Happened!');
+              console.log(err);
             });
         }
 
@@ -30,7 +34,7 @@ define(function(require){
         $scope.dataRoot = [];
         function init() {
             PropertyService.getAllProperty()
-                .then(function(resp){ 
+                .then(function(resp){
                     $scope.dataRoot = resp;
                     console.log("Get all customer success", resp);
                 })
@@ -49,14 +53,14 @@ define(function(require){
         }
 
         function onCreateNewCustomer() {
-            getNewCustomerModal().result.then(function() {});
+            getNewCustomerModal().result.then(function() {
+              ajaxLoadingFactory.show();
+            });
         }
 
         vm.onCreateNewCustomer = onCreateNewCustomer;
 
         init();
-
-
     }
 
     return ctrlFn;

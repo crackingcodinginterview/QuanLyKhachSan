@@ -7,11 +7,20 @@
 .Bdc\(\#273340\) {
   border-color: #273340;
 }
+.Bdendc\(\#000\) {
+  border-right-color: #000;
+}
 .Bds\(s\) {
   border-style: solid;
 }
+.Bdends\(s\) {
+  border-right-style: solid;
+}
 .Bdw\(1px\) {
   border-width: 1px;
+}
+.Bdendw\(1px\) {
+  border-right-width: 1px;
 }
 .Bdbw\(0\) {
   border-bottom-width: 0;
@@ -58,6 +67,9 @@
 .D\(ib\) {
   display: inline-block;
 }
+.Fl\(start\) {
+  float: left;
+}
 .Fw\(500\) {
   font-weight: 500;
 }
@@ -94,11 +106,14 @@
 .Mt\(5px\) {
   margin-top: 5px;
 }
-.Mt\(80px\) {
-  margin-top: 80px;
+.Mt\(50px\) {
+  margin-top: 50px;
 }
 .Mt\(10px\) {
   margin-top: 10px;
+}
+.Mt\(80px\) {
+  margin-top: 80px;
 }
 .Mt\(40px\) {
   margin-top: 40px;
@@ -142,9 +157,17 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+.Px\(50px\) {
+  padding-left: 50px;
+  padding-right: 50px;
+}
 .Py\(8px\) {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+.Py\(40px\) {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .Py\(10px\) {
   padding-top: 10px;
@@ -153,6 +176,12 @@
 .Py\(22px\) {
   padding-top: 22px;
   padding-bottom: 22px;
+}
+.Pend\(10px\) {
+  padding-right: 10px;
+}
+.Pstart\(10px\) {
+  padding-left: 10px;
 }
 .Ta\(c\) {
   text-align: center;

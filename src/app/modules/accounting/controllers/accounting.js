@@ -58,7 +58,7 @@ define(function(require) {
         function getNewCustomerModal() {
             return $uibModal.open({
                 animation: true,
-                templateUrl: 'accounting/templates/newCustomer.html',
+                templateUrl: 'room/templates/updateavailable.html',
                 controller: 'NewCustomerController',
                 controllerAs: 'vm',
             });

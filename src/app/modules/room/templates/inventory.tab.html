@@ -1,0 +1,30 @@
+<div class="tab">
+    <div class="clear-fix">
+        <button class="btn btn-primary">Modify Maximum Availabilities (Select Room Types below)</button>
+        <button class="btn btn-default" data-ng-click="onPreviousWeek_Click()">Previous Week</button>
+        <button class="btn btn-default" data-ng-click="onNextWeek_Click()">Next Week</button>
+        <button class="btn btn-primary pull-right" data-ng-click="onUpdateAvailable_Click()">Manually update availabilities for all channels</button>
+    </div>
+    <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
+        <tr ng-repeat="user in $data">
+            <td title="'Room Type'" filter="{ name: 'text'}" class="text-center">
+                {{user.$id}}</td>
+            <td title="days[0]" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="days[1]" filter="{ name: 'text'}" class="text-center">
+                {{user.phone}}</td>
+            <td title="days[2]" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="days[3]" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="days[4]" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="days[5]" filter="{ age: 'number'}">
+                <div class="text-center">{{user.age}}</div>
+            </td>
+            <td title="days[6]" filter="{ age: 'number'}">
+                <div class="text-center">{{user.age}}</div>
+            </td>
+        </tr>
+    </table>
+</div>

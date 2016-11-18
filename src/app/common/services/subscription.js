@@ -4,8 +4,8 @@ define(function (require) {
 
     var module = angular.module('common.context.member', []);
 
-    service.$inject = ['$firebaseArray', '$firebaseObject'];
-    function service($firebaseArray, $firebaseObject){
+    service.$inject = ['$firebaseObject'];
+    function service($firebaseObject){
         //Nội dung service ở đây
         var service = {};
         var _ref = firebase.database().ref('thanhvien');

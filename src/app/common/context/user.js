@@ -4,32 +4,56 @@ define(function (require) {
 
     var module = angular.module('common.context.user', []);
 
-    service.$inject = ['$firebaseArray', '$firebaseObject'];
-    function service($firebaseArray, $firebaseObject){
+    service.$inject = ['$firebaseObject', '$firebaseAuth', '$rootScope', 'localStorageService'];
+    function service($firebaseObject, $firebaseAuth, $rootScope, localStorageService){
         //Nội dung service ở đây
         var service = {};
         var _currentUser;
 
+        function loadFirebase(){
+            $firebaseAuth().$onAuthStateChanged(function(resp){
+                console.log(resp);
+            });
+        }
         function getUserId(){
-            return _currentUser.uid;
+            return $firebaseAuth().$getAuth().uid;
         }
         function isAuth(){
-            return angular.isString(_currentUser.uid);
+            return !!_currentUser;
         }
-        function fillContext(currentUser){
-            _currentUser = currentUser;
+        function loadFromLocal(){
+            var data = localStorageService.get('userInfor');
+            if(data){
+                _currentUser = data;
+                $rootScope.currentUser = data;
+            }
+        }
+        function fillContext(userData){
+            _currentUser = userData;
+            $rootScope.currentUser = userData;
+            localStorageService.set('userInfor', userData);
+        }
+        function clearContext(){
+            _currentUser = null;
+            $rootScope.currentUser = null;
+            localStorageService.remove('userInfor');
         }
         function signOut(){
-            return _currentUser.$signOut();
+            clearContext();
+            return $firebaseAuth().$signOut();
         }
         function changePassword(newPassword){
-            return _currentUser.$updatePassword(newPassword);
+            return $firebaseAuth().$updatePassword(newPassword);
         }
 
         service.fillContext = fillContext;
         service.getUserId = getUserId;
         service.signOut = signOut;
         service.changePassword = changePassword;
+        service.isAuth = isAuth;
+        service.loadFromLocal = loadFromLocal;
+        service.loadFirebase = loadFirebase;
+
         return service;
     }
     module.factory('UserContext', service);

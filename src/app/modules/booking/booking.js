@@ -19,6 +19,7 @@ define(function(require){
     function config($stateProvider){
         $stateProvider.state('base3.booking', {
             url: '/booking',
+            authorization: true,
             views: {
                 'base3': {
                     templateUrl: 'booking/templates/booking.html',

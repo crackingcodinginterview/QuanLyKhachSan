@@ -18,10 +18,14 @@ define(function (require) {
         function resetPassword(email){
             return $firebaseAuth().$sendPasswordResetEmail(email);
         }
+        function confirmChangePassword(oobCode, confirmNewPasswordViewModel){
+            return firebase.auth().confirmPasswordReset(oobCode, confirmNewPasswordViewModel.newPassword);
+        }
 
         service.login = login;
         service.register = register;
         service.resetPassword = resetPassword;
+        service.confirmChangePassword = confirmChangePassword;
         return service;
     }
     module.factory('UserService', service);

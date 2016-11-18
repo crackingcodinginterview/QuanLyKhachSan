@@ -6,6 +6,7 @@ require.config({
     paths: {
         jquery: 'bower_components/jquery/dist/jquery',
         angular: 'bower_components/angular/angular',
+        moment: 'bower_components/moment/moment',
 
         firebase: 'bower_components/firebase/firebase',
 
@@ -13,10 +14,18 @@ require.config({
         ngTable: 'bower_components/ng-table/dist/ng-table',
         angularBoostrap: 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
         angularFire: 'bower_components/angularfire/dist/angularfire',
+        angularMoment: 'bower_components/angular-moment/angular-moment',
+        angularAnimate: 'bower_components/angular-animate/angular-animate',
+        angularToaster: 'bower_components/AngularJS-Toaster/toaster',
+        angularLocalStorage: 'bower_components/angular-local-storage/dist/angular-local-storage',
+        angularLoadingBar: 'bower_components/angular-loading-bar/build/loading-bar'
     },
     shim: {
         'angularFire': {
             deps: ['angular', 'firebase'],
+        },
+        'moment': {
+            deps: ['jquery'],
         },
         'angular': {
             deps: ['jquery'],
@@ -31,6 +40,21 @@ require.config({
         'angularBoostrap': {
             deps: ['angular']
         },
+        'angularMoment': {
+            deps: ['moment', 'angular']
+        },
+        'angularAnimate': {
+            deps: ['angular']
+        },
+        'angularToaster': {
+            deps: ['angularAnimate']
+        },
+        'angularLocalStorage': {
+            deps: ['angular']
+        },
+        'angularLoadingBar': {
+            deps: ['angularAnimate']
+        }
     },
     exclude:[
         'jquery',
@@ -40,6 +64,11 @@ require.config({
         'uiRouter',
         'ngTable',
         'angularBoostrap',
-        'angularFire'
+        'angularFire',
+        'angularMoment',
+        'angularAnimate',
+        'angularToaster',
+        'angularLocalStorage',
+        'angularLoadingBar'
     ]
 });

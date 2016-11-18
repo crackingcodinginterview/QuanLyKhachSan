@@ -9,7 +9,11 @@ define(function(require){
     var uiRouter = require('uiRouter');
     var ngTable = require('ngTable');
     var angularBoostrap = require('angularBoostrap');
-    // var angularFullcalendar = require('angularFullcalendar');
+    var angularMoment = require('angularMoment');
+    var angularAnimate = require('angularAnimate');
+    var angularToaster = require('angularToaster');
+    var angularLocalStorage = require('angularLocalStorage');
+    var angularLoadingBar = require('angularLoadingBar');
 
     var bootstrap = require('bootstrap');
 
@@ -17,7 +21,10 @@ define(function(require){
         'ui.router',
         'ngTable',
         'ui.bootstrap',
-        // 'ui.calendar',
+        'angularMoment',
+        'ngAnimate',
+        'toaster',
+        'LocalStorageModule',
 
         appConfig,
         appCommon,
@@ -34,6 +41,9 @@ define(function(require){
         'app.accounting',
         'app.accountsetting',
         'app.property',
+        'app.room',
+        'app.external',
+        'app.confirmpassword',
     ]);
 
     return module;

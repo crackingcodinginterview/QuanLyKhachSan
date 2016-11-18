@@ -1,0 +1,24 @@
+<div class="status Px(20px)">
+    <h1>Room Status</h1>
+    <ul class="Fl(start)">
+        <li class="Fl(start) Pend(10px) Bdendc(#000) Bdends(s) Bdendw(1px)"><a class="D(b)" href="">Housekeeping Report</a></li>
+        <li class="Fl(start) Pstart(10px)"><a class="D(b)" href="">Edit Rooms</a></li>
+    </ul>
+    <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
+        <tr ng-repeat="user in $data">
+            <td title="'Rooms'" filter="{ name: 'text'}" class="text-center">
+                {{user.$id}}</td>
+            <td title="'Room Types'" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="'Customer'" filter="{ name: 'text'}" class="text-center">
+                {{user.phone}}</td>
+            <td title="'Clean All Rooms'" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="'Room Notes'" filter="{ name: 'text'}" class="text-center">
+                {{user.name}}</td>
+            <td title="'aa'" filter="{ name: 'text'}" class="text-center">
+                <button class="btn btn-default">Edit Room Note</button>
+            </td>
+        </tr>
+    </table>
+</div>

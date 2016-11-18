@@ -9,6 +9,8 @@ var cssimport = require("gulp-cssimport");
 var acss = require('gulp-atomizer');
 var open = argv.open;
 var tinylr, currentVersion, nextVersion;
+var rjs = require('gulp-requirejs');
+
 var paths = {
     scss: ['./scss/**/*.scss'],
 };
@@ -42,6 +44,18 @@ gulp.task('scss', function (done) {
         .pipe(minifyCss({processImport: false}))
         .pipe(gulp.dest('./css/'))
         .on('end', done);
+});
+
+gulp.task('requirejsBuild', function() {
+    return rjs({
+        baseUrl: './',
+        out: 'dist/main.js',
+        name: 'main',
+        findNestedDependencies: true,
+        shim: {
+        },
+    })
+        .pipe(gulp.dest('./main/')); // pipe it to the output DIR
 });
 
 gulp.task('watch', function () {
