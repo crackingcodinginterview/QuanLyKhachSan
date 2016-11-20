@@ -10,6 +10,13 @@ var acss = require('gulp-atomizer');
 var open = argv.open;
 var tinylr, currentVersion, nextVersion;
 var rjs = require('gulp-requirejs');
+var shell = require('gulp-shell');
+
+gulp.task('optimizer', shell.task([
+    'node r.js -o build-scripts/jquery.js',
+    'node r.js -o build-scripts/angular.js',
+    'node r.js -o build-scripts/app.js'
+]));
 
 var paths = {
     scss: ['./scss/**/*.scss'],

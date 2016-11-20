@@ -70,23 +70,23 @@
 .Fl\(start\) {
   float: left;
 }
-.Fw\(600\) {
-  font-weight: 600;
-}
 .Fw\(500\) {
   font-weight: 500;
 }
-.Fz\(16px\) {
-  font-size: 16px;
+.Fw\(600\) {
+  font-weight: 600;
 }
 .Fz\(36px\) {
   font-size: 36px;
 }
-.Fz\(30px\) {
-  font-size: 30px;
-}
 .Fz\(18px\) {
   font-size: 18px;
+}
+.Fz\(16px\) {
+  font-size: 16px;
+}
+.Fz\(30px\) {
+  font-size: 30px;
 }
 .Fz\(20px\) {
   font-size: 20px;
@@ -183,11 +183,11 @@
 .Pstart\(10px\) {
   padding-left: 10px;
 }
-.Ta\(s\) {
-  text-align: start;
-}
 .Ta\(c\) {
   text-align: center;
+}
+.Ta\(s\) {
+  text-align: start;
 }
 .Va\(m\) {
   vertical-align: middle;
