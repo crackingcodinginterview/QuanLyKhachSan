@@ -3,16 +3,18 @@ define(function(require) {
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService'];
+    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService', 'toaster', 'ajaxLoadingFactory'];
 
-    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService) {
+    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService, toaster, ajaxLoadingFactory) {
         //Nội dung của controller ghi ở đây
-        console.log('đang ở AccountingController');
         var vm = this;
         var data = [];
         var dataSearch = [];
         var dataRoot = [];
         vm.keySearch;
+        //ajaxLoadingFactory.show();
+        //ajaxLoadingFactory.hide();
+        //toaster.pop('error', 'Note', 'Error Happened!');
 
         vm.search = function() {
             if (vm.keySearch != null && vm.keySearch != '') {
@@ -23,7 +25,8 @@ define(function(require) {
                     }
                 }
                 if (dataSearch.length === 0) {
-                    console.log("not found customer!!!");
+                    toaster.pop('error', 'Note', 'Not found customer!!!');
+                    //console.log("not found customer!!!");
                 } else {
                     data = dataSearch;
                     vm.tableParams = new NgTableParams({}, {
@@ -40,6 +43,7 @@ define(function(require) {
         }
 
         function init() {
+          ajaxLoadingFactory.show();
             CustomerService.getAllCustomer()
                 .then(function(resp) {
                     data = resp;
@@ -47,11 +51,16 @@ define(function(require) {
                     vm.tableParams = new NgTableParams({}, {
                         dataset: data
                     });
-                    console.log("Get all customer success", resp);
+                      toaster.pop('success', 'Note', 'Get all customer success');
+                    //console.log("Get all customer success", resp);
                 })
                 .catch(function(error) {
-                    console.log("Get all customer error", error);
-                });;
+                    toaster.pop('error', 'Note', 'Get all customer error');
+                    //console.log("Get all customer error", error);
+                })
+                .finally(function() {
+                    ajaxLoadingFactory.hide();
+                });
 
         }
 
@@ -65,7 +74,8 @@ define(function(require) {
         }
 
         function onCreateNewCustomer() {
-            getNewCustomerModal().result.then(function() {});
+            getNewCustomerModal().result.then(function() {
+            });
         }
 
         vm.onCreateNewCustomer = onCreateNewCustomer;

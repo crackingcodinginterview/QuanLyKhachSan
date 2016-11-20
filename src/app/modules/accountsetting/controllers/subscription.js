@@ -3,11 +3,10 @@ define(function(require) {
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', '$uibModal', 'MemberService'];
+    ctrlFn.$inject = ['$scope', '$uibModal', 'MemberService', 'toaster', 'ajaxLoadingFactory'];
 
-    function ctrlFn($scope, $uibModal, MemberService) {
+    function ctrlFn($scope, $uibModal, MemberService, toaster, ajaxLoadingFactory) {
         //Nội dung của controller ghi ở đây
-        console.log('đang ở subsription');
         var vm = this;
         var data;
         vm.region = "";
@@ -50,34 +49,46 @@ define(function(require) {
         }
 
         function init() {
+            ajaxLoadingFactory.show();
             MemberService.getMember()
                 .then(function(resp) {
                     vm.region = resp.region;
                     data = resp;
-                    if(data.subscription == "basic"){
-                      vm.basic = true;
+                    if (data.subscription === "Basic") {
+                      document.getElementById("Basic").checked = true;
+                        vm.basic = true;
+                    } else if (data.subscription === "Premium-monthly") {
+                      document.getElementById("Monthly").checked = true;
+                        vm.monthly = true;
+                    } else if (data.subscription === "Premium-yearly") {
+                      document.getElementById("Yearly").checked = true;
+                        vm.yearly = true;
                     }
-                    else if(data.subscription == "monthly"){
-                      vm.monthly = true;
-                    }
-                    else if (data.subscription == "yearly") {
-                      vm.yearly = true;
-                    }
-                    console.log("get member success");
+                    toaster.pop('success', 'Note', 'Get member success!');
+                    //console.log("get member success");
                 })
                 .catch(function(error) {
-                    console.log("get member error", error);
-                });;
+                    toaster.pop('error', 'Note', 'Get member error!');
+                    //  console.log("get member error", error);
+                })
+                .finally(function() {
+                    ajaxLoadingFactory.hide();
+                });
         }
 
         vm.ok = function() {
+          ajaxLoadingFactory.show();
             try {
                 change(data);
                 MemberService.saveData(data);
-                console.log("Change member success");
+                toaster.pop('success', 'Note', 'Change member success!');
+                //console.log("Change member success");
             } catch (e) {
-                console.log("Change member error");
-            }
+                toaster.pop('error', 'Note', 'Change member error!');
+                //console.log("Change member error");
+            } finally {
+                ajaxLoadingFactory.hide();
+            };
         }
 
         init();
