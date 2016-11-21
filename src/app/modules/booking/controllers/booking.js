@@ -6,25 +6,17 @@ define(function(require){
     ctrlFn.$inject = ['$scope'];
     function ctrlFn($scope){
         //Nội dung của controller ghi ở đây
-        console.log('đang ở booking');
-
-        var vm = this;
-
-        function init(){
-            vm.uiConfig = {
-                calendar:{
-                    height: 450,
-                    editable: true,
-                    header:{
-                        left: 'month basicWeek basicDay agendaWeek agendaDay',
-                        center: 'title',
-                        right: 'today prev,next'
-                    },
-                }
-            };
-        }
-
-        init();
+        $scope.uiConfig = {
+            calendar:{
+                height: 450,
+                editable: true,
+                header:{
+                    left: 'title',
+                    center: '',
+                    right: 'today prev,next'
+                },
+            }
+        };
     }
 
     return ctrlFn;

@@ -14,6 +14,7 @@ define(function(require){
     var angularToaster = require('angularToaster');
     var angularLocalStorage = require('angularLocalStorage');
     var angularLoadingBar = require('angularLoadingBar');
+    var angularFullcalendar = require('angularFullcalendar');
 
     var bootstrap = require('bootstrap');
 
@@ -25,6 +26,7 @@ define(function(require){
         'ngAnimate',
         'toaster',
         'LocalStorageModule',
+        'ui.calendar',
 
         appConfig,
         appCommon,
@@ -44,6 +46,7 @@ define(function(require){
         'app.room',
         'app.external',
         'app.confirmpassword',
+        'app.setting',
     ]);
 
     return module;

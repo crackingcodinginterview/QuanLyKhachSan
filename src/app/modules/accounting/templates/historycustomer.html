@@ -1,10 +1,5 @@
-<div class="accounting col-md-12 Mb(240px)">
-    <h1 class="Fz(36px) Fw(500)">Accounting</h1>
-    <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
+<div class="historycustomer col-md-12 Mb(240px)">
     <form class="form-inline Mt(20px) Bdw(1px) Bds(s) Bdc(#ddd) P(15px) Bdrs(5px) Fz(18px)">
-        <div class="form-group">
-            <input type="text" ng-model="vm.keySearch" class="form-control col-md-4 Fz(18px)" placeholder="Search Keywords">
-        </div>
         <div class="form-group">
             <select class="form-control col-md-4 Fz(18px)" name="customer_type_id">
                 <option value="">All Customer Types</option>
@@ -12,40 +7,82 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="checkbox" name="show_deleted" value="checked">
-            <label class="control-label Fz(18px)"> Show deleted customers</label>
+            <label for="">bookings between</label>
+            <input class="form-control" type="date" datepicker-popup>
         </div>
-        <button type="submit" name="submit" value="search" ng-click="vm.search()" class="btn btn-default background-graywhite Fz(18px)">Search Customers</button>
-        <button data-ng-click="vm.onCreateNewCustomer()" class="btn btn-default pull-right background-graywhite Fz(18px)">Create New Customer</button>
+        <div class="form-group">
+            <label for="">and</label>
+            <input class="form-control" type="date" datepicker-popup>
+        </div>
+        <div class="form-group">
+            <label for="">that are</label>
+            <select class="form-control Fz(18px)" name="customer_type_id">
+                <option value="">paid or unpaid</option>
+                <option value="Traveller">paid</option>
+                <option value="Traveller">unpaid</option>
+            </select>
+        </div>
+        <button class="btn btn-default">
+            <span class="glyphicon glyphicon-search Mend(5px)"></span>Filter
+        </button>
+    </form>
+    <form class="form-inline clearfix Mt(20px) Bdw(1px) Bds(s) Bdc(#ddd) P(15px) Bdrs(5px) Fz(18px)">
+        <div class="pull-left">
+            <button class="btn btn-default">Edit Profile</button>
+            <button class="btn btn-danger">Add Payment(s)</button>
+            <button class="btn btn-primary">Print statement</button>
+        </div>
+        <div class="pull-right">
+            <span>Legend:</span>
+            <span class="Bgc(#e6f3ff) P(10px)">Reservation</span>
+            <span class="Bgc(#dffea7) P(10px)">Checked in</span>
+            <span class="Bgc(#ffe6aa) P(10px)">Checked out</span>
+            <span class="Bgc(#eeeeee) P(10px)">Cancelled</span>
+        </div>
     </form>
     <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
         <tr ng-repeat="user in $data">
             <td title="'ID'" filter="{ name: 'text'}" class="text-center">
                 {{user.$id}}</td>
-            <td title="'Name'" filter="{ name: 'text'}" sortable="'name'" class="text-center">
+            <td title="'Room'" filter="{ name: 'text'}" sortable="'name'" class="text-center">
                 {{user.name}}</td>
-            <td title="'Phone'" filter="{ name: 'text'}" class="text-center">
+            <td title="'Staying Guest(s)'" filter="{ name: 'text'}" class="text-center">
                 {{user.phone}}</td>
-            <td title="'Last check-out'" filter="{ name: 'text'}" sortable="'lastCheckOut'" class="text-center">
+            <td title="'Check-in'" filter="{ name: 'text'}" sortable="'lastCheckOut'" class="text-center">
                 {{user.name}}</td>
-            <td title="'Charge Total'" filter="{ name: 'text'}" sortable="'chargeTotal'" class="text-center">
+            <td title="'Check-out'" filter="{ name: 'text'}" sortable="'chargeTotal'" class="text-center">
                 {{user.name}}</td>
-            <td title="'Payment Total'" filter="{ name: 'text'}" sortable="'paymentTotal'" class="text-center">
+            <td title="'Sub-total'" filter="{ name: 'text'}" class="text-center">
                 {{user.name}}</td>
+            <td title="'Tax'" filter="{ age: 'number'}">
+                <div class="text-center">{{user.age}}</div>
+            </td>
+            <td title="'Charge'" filter="{ age: 'number'}" sortable="'balance'">
+                <div class="text-center">{{user.age}}</div>
+            </td>
+            <td title="'Payment'" filter="{ age: 'number'}" sortable="'balance'">
+                <div class="text-center">{{user.age}}</div>
+            </td>
             <td title="'Balance'" filter="{ age: 'number'}" sortable="'balance'">
                 <div class="text-center">{{user.age}}</div>
             </td>
-            <td title="''">
-                <div class="dropdown pull-right">
-                    <a href="#" data-ng-click="$event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="caret"></span></a>
-                    <ul class="dropdown-menu Fz(16px)">
-                        <li><a href="#">Show Profile</a></li>
-                        <li><a href="#">Show History</a></li>
-                        <li><a href="#">Delete Customer</a></li>
-                    </ul>
-                </div>
-            </td>
         </tr>
     </table>
+    <div>
+        <p>Bookings that this customer did not reserve, but stayed in</p>
+        <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
+            <tr ng-repeat="user in $data">
+                <td title="'ID'" filter="{ name: 'text'}" class="text-center">
+                    {{user.$id}}</td>
+                <td title="'Room'" filter="{ name: 'text'}" sortable="'name'" class="text-center">
+                    {{user.name}}</td>
+                <td title="'Reserved by'" filter="{ name: 'text'}" class="text-center">
+                    {{user.phone}}</td>
+                <td title="'Check-in'" filter="{ name: 'text'}" sortable="'lastCheckOut'" class="text-center">
+                    {{user.name}}</td>
+                <td title="'Check-out'" filter="{ name: 'text'}" sortable="'chargeTotal'" class="text-center">
+                    {{user.name}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

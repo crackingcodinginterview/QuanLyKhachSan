@@ -7,3 +7,23 @@
 body{
   font-family: "Times New Roman";
 }
+
+.company {
+  div[active="activePill"]{
+    display: flex;
+    .nav-pills{
+      a{
+        background-color: #26323f;
+        color: #fff;
+      }
+      li.active a{
+        background-color: #fff;
+        color: #000;
+      }
+    }
+    .tab-content{
+      padding: 20px;
+      flex-grow: 1;
+    }
+  }
+}

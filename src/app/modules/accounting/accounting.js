@@ -19,7 +19,7 @@ define(function(require){
     function run($templateCache){
         $templateCache.put('accounting/templates/accounting.html', template);
         $templateCache.put('accounting/templates/newCustomer.html', newCustomerTemplate);
-        $templateCache.put('accounting/templates/historyCustomer.html', historyCustomerController);
+        $templateCache.put('accounting/templates/historyCustomer.html', historyCustomerTemplate);
     }
     module.run(run);
 
@@ -40,7 +40,7 @@ define(function(require){
                 }
             })
             .state('base3.historycustomer', {
-                url: '/customer/history/:customerId',
+                url: '/customer/history',
                 authorization: true,
                 views: {
                     'base3': {
