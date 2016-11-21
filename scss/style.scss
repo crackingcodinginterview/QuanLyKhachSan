@@ -8,17 +8,22 @@ body{
   font-family: "Times New Roman";
 }
 
-.company {
+.setting {
   div[active="activePill"]{
     display: flex;
     .nav-pills{
+      width: 250px;
       a{
         background-color: #26323f;
         color: #fff;
+        border-radius: 0;
       }
-      li.active a{
-        background-color: #fff;
-        color: #000;
+      li{
+        margin-top: 0 !important;
+        &.active a {
+          background-color: #fff;
+          color: #000;
+        }
       }
     }
     .tab-content{

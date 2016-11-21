@@ -1,0 +1,65 @@
+<div class="roomtype">
+    <h1>Room Type Settings</h1>
+    <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
+    <div class="Mt(20px)">
+        <div class="col-md-4">
+            <button class="btn btn-primary">Add Room Type</button>
+        </div>
+        <form class="col-md-8 form-horizontal Bdw(1px) Bds(s) Bdc(#000000) P(20px) Bdrs(5px)">
+            <div class="form-group">
+                <label for="description" class="col-sm-3 control-label">
+                    Room Type Name
+                </label>
+                <div class="col-sm-3">
+                    <input name="room-type-name" class="form-control" type="text" value="New Room Type">
+                </div>
+                <label for="description" class="col-sm-2 control-label">
+                    Acronym
+                </label>
+                <div class="col-sm-2">
+                    <input class="form-control" type="text" size="6" maxlength="6" value="S.N">
+                </div>
+                <div class="col-sm-2">
+                    <button class="delete-room-type-button btn btn-danger pull-right">Delete</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Maximum Capacity</label>
+                <div class="col-md-2">
+                    <select class="enter form-control">
+                        <option value="1">1 adults</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4" selected="">4 adults</option><option value="5">5 adults</option><option value="6">6 adults</option><option value="7">7 adults</option><option value="8">8 adults</option><option value="9">9 adults</option><option value="10">10 adults</option><option value="11">11 adults</option><option value="12">12 adults</option><option value="13">13 adults</option><option value="14">14 adults</option><option value="15">15 adults</option><option value="16">16 adults</option>				</select>
+                </div>
+
+                <div class="col-sm-2">
+                    <select class="enter form-control">
+                        <option value="1">1 children</option><option value="2">2 children</option><option value="3">3 children</option><option value="4" selected="">4 children</option><option value="5">5 children</option><option value="6">6 children</option><option value="7">7 children</option><option value="8">8 children</option><option value="9">9 children</option><option value="10">10 children</option><option value="11">11 children</option><option value="12">12 children</option><option value="13">13 children</option><option value="14">14 children</option><option value="15">15 children</option><option value="16">16 children</option>				</select>
+                </div>
+                <label class="col-sm-3 control-label">Show on Website</label>
+                <div class="col-sm-2">
+                    <select class="form-control">
+                        <option value="0">No</option>
+                        <option value="1" selected="">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-3 control-label">
+                    Description
+                </label>
+                <div class="col-sm-9">
+                    <textarea class="enter form-control" rows="4" name="description" type="text" autocomplete="off">				</textarea>
+                </div>
+            </div>
+            <div class="form-inline form-group">
+                <label class="col-sm-3 control-label">
+                    Images <button class="btn btn-primary form-control add-image" data-toggle="modal" data-target="#image_edit_modal">
+                    Add Image
+                </button>
+
+                </label>
+                <div class="col-sm-9"></div>
+            </div>
+            <button class="btn btn-success col-md-offset-4">Update Room Type</button>
+        </form>
+    </div>
+</div>

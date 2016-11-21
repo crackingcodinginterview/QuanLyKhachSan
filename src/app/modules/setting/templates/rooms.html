@@ -1,0 +1,16 @@
+<div class="rooms">
+    <uib-tabset
+            active="activePill"
+            vertical="true"
+            type="pills">
+        <uib-tab index="0" heading="Rooms">
+            <ng-include src="'setting/templates/rooms/room.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Room Types">
+            <ng-include src="'setting/templates/rooms/roomtype.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="Housekeeping">
+            <ng-include src="'setting/templates/rooms/housekeeping.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+</div>
