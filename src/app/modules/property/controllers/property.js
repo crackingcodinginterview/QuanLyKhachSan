@@ -20,7 +20,7 @@ define(function(require){
         }
         function onCreateNewProperty(){
             getNewProperty().result.then(function(success){
-                toaster.pop('success', 'Note', 'Login success!');
+                toaster.pop('success', 'Note', 'Add success!');
                 debugger;
             }, function (err) {
               toaster.pop('error', 'Note', 'Error Happened!');
