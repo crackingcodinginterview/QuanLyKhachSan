@@ -39,9 +39,14 @@ define(function (require) {
         function addNewCustomer(customerData){
             return _ref.push(customerData);
         }
+
+        function deleteCustomer(customerId) {
+          return _ref.child(customerId.$id).remove();
+        }
         service.addNewCustomer = addNewCustomer;
         service.getCustomerById = getCustomerById;
         service.getAllCustomer = getAllCustomer;
+        service.deleteCustomer = deleteCustomer;
 
         return service;
     }

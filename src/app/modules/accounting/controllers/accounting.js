@@ -3,9 +3,9 @@ define(function(require) {
 
     var angular = require('angular');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService'];
+    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService', "toaster", "ajaxLoadingFactory"];
 
-    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService) {
+    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService, toaster, ajaxLoadingFactory) {
         //Nội dung của controller ghi ở đây
         console.log('đang ở AccountingController');
         var vm = this;
@@ -13,6 +13,27 @@ define(function(require) {
         var dataSearch = [];
         var dataRoot = [];
         vm.keySearch;
+
+        vm.deleteCustomer = function (user) {
+          console.log(user);
+          CustomerService.deleteCustomer(user).then(function (dataSearch) {
+            CustomerService.getAllCustomer()
+                .then(function(resp) {
+                    data = resp;
+                    dataRoot = data;
+                    vm.tableParams = new NgTableParams({}, {
+                        dataset: data
+                    });
+                    console.log("Get all customer success", resp);
+                    toaster.pop('success', 'Note', 'Delete success!');
+                })
+                .catch(function(error) {
+                    console.log("Get all customer error", error);
+                });;
+          }, function (err) {
+            console.log(err);
+          });
+        }
 
         vm.search = function() {
             if (vm.keySearch != null && vm.keySearch != '') {
