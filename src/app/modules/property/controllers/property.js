@@ -51,13 +51,11 @@ define(function(require){
                 controllerAs: 'vm',
             });
         }
-
         function onCreateNewCustomer() {
             getNewCustomerModal().result.then(function() {
               ajaxLoadingFactory.show();
             });
         }
-
         vm.onCreateNewCustomer = onCreateNewCustomer;
 
         init();
