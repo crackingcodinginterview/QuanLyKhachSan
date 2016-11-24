@@ -1,12 +1,4 @@
-$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-$navbar-default-bg: #334455;
-$navbar-default-border: #273340;
-$navbar-default-color: #fff;
-$navbar-default-link-color: #fff;
-$navbar-default-link-hover-color: #b7cedf;
-$navbar-default-link-active-bg: transparent;
-$navbar-default-link-active-color: #fff;
-$navbar-border-radius: 0;
+@import "./variables";
 
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../bower_components/ng-table/dist/ng-table.css";
@@ -17,7 +9,7 @@ $navbar-border-radius: 0;
 @import "../bower_components/angular-loading-bar/build/loading-bar.css";
 @import "../bower_components/fullcalendar/dist/fullcalendar.css";
 
-
+@import "./mixin";
 @import "./style";
 @import "./utilities";
 @import "./variables";

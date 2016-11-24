@@ -1,0 +1,37 @@
+@mixin createCustomNavbar(
+  $height,
+  $brandHeight,
+  $navItemHeight,
+  $navLinkHeight,
+  $navLinkLineHeight
+){
+  min-height: $height;
+  .navbar-brand{
+    height: $brandHeight;
+    $half: round(($height - $brandHeight) / 2);
+    padding: 0;
+    margin-top: $half;
+    margin-bottom: $half;
+  }
+  .navbar-toggle{
+    margin: 6px 12px 6px 0px;
+    padding: 6px 7px 6px 7px;
+    .icon-bar{
+      width: 19px;
+    }
+  }
+  .navbar-nav{
+    >li{
+      $half: round(($height - $navItemHeight) / 2);
+      margin-top: $half;
+      margin-bottom: $half;
+      >a{
+        $half: round(($navLinkHeight - $navLinkLineHeight) / 2);
+        line-height: $navLinkLineHeight;
+        padding-top: $half;
+        padding-bottom: $half;
+      }
+    }
+  }
+  @content
+}

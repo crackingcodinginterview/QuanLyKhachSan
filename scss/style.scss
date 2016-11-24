@@ -3,11 +3,13 @@
   padding: 0;
   margin: 0;
 }
-
 body{
   font-family: "Times New Roman";
 }
-
+img{
+  max-width: 100%;
+  height: auto;
+}
 .setting {
   div[active="activePill"]{
     display: flex;
@@ -30,5 +32,69 @@ body{
       padding: 20px;
       flex-grow: 1;
     }
+  }
+}
+table[ng-table] th {
+  font-weight: 600;
+  font-size: 18px;
+}
+table[ng-table] th.sortable{
+  color: #337ab7;
+}
+.base1{
+  .navbar-custom{
+    @include createCustomNavbar(
+            $height: 76px,
+            $brandHeight: 40px,
+            $navItemHeight: 40px,
+            $navLinkLineHeight: 20px,
+            $navLinkHeight: 40px
+    ){
+      background: linear-gradient(to bottom, #eef0e8, #e3e6d9);
+      .navbar-brand{
+        color: #53564e;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 600;
+        >img{
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+      .navbar-nav{
+        >li{
+          margin-right: 10px;
+          >a{
+            color: #555555;
+            text-transform: uppercase;
+            &:hover,
+            &:focus{
+              color: #555555;
+              background-color: transparent;
+            }
+            &.freetrial{
+              background: linear-gradient(to bottom, #e08e79, #ce7f6b);
+              color: #ffffff;
+            }
+            &.login{
+              background: linear-gradient(to bottom, #b9cf7f, #aabf70);
+              color: #60635b;
+            }
+          }
+        }
+        > .active {
+          >a{
+            background-color: #dce0cf;
+            box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            &:hover,
+            &:focus{
+              color: #555555;
+              background-color: #dce0cf;
+            }
+          }
+        }
+      }
+    };
   }
 }
