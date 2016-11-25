@@ -16,6 +16,23 @@ define(function(require){
     var houseKeepingTemplate = require('text!./templates/rooms/housekeeping.html');
     var houseTypeTemplate = require('text!./templates/rooms/roomtype.html');
 
+    var accountingTemplate = require('text!./templates/accounting.html');
+    var chargeTypesTemplate = require('text!./templates/accounting/chargetypes.html');
+    var customerFieldsTemplate = require('text!./templates/accounting/customerfields.html');
+    var customerTypesTemplate = require('text!./templates/accounting/customertypes.html');
+    var paymentGatewaysTemplate = require('text!./templates/accounting/paymentgateways.html');
+    var paymentTypesTemplate = require('text!./templates/accounting/paymenttypes.html');
+    var taxTypesTemplate = require('text!./templates/accounting/taxtypes.html');
+    var invoiceTemplate = require('text!./templates/accounting/invoice.html');
+
+    var emailTemplate = require('text!./templates/email.html');
+    var invoiceEmailTemplate = require('text!./templates/email/invoiceemail.html');
+    var bookConfirmationEmailTemplate = require('text!./templates/email/bookconfirmationemail.html');
+
+    var ratesTemplate = require('text!./templates/rates.html');
+    var extrasTemplate = require('text!./templates/rates/extras.html');
+    var rateplansTemplate = require('text!./templates/rates/rateplans.html');
+
     var controller = require('./controllers/setting');
     var companyController = require('./controllers/company');
 
@@ -37,6 +54,23 @@ define(function(require){
         $templateCache.put('setting/templates/rooms/room.html', roomTemplate);
         $templateCache.put('setting/templates/rooms/housekeeping.html', houseKeepingTemplate);
         $templateCache.put('setting/templates/rooms/roomtype.html', houseTypeTemplate);
+
+        $templateCache.put('setting/templates/accounting.html', accountingTemplate);
+        $templateCache.put('setting/templates/accounting/chargetypes.html', chargeTypesTemplate);
+        $templateCache.put('setting/templates/accounting/customerfields.html', customerFieldsTemplate);
+        $templateCache.put('setting/templates/accounting/customertypes.html', customerTypesTemplate);
+        $templateCache.put('setting/templates/accounting/paymentgateways.html', paymentGatewaysTemplate);
+        $templateCache.put('setting/templates/accounting/paymenttypes.html', paymentTypesTemplate);
+        $templateCache.put('setting/templates/accounting/taxtypes.html', taxTypesTemplate);
+        $templateCache.put('setting/templates/accounting/invoice.html', invoiceTemplate);
+
+        $templateCache.put('setting/templates/email.html', emailTemplate);
+        $templateCache.put('setting/templates/email/invoiceemail.html', invoiceEmailTemplate);
+        $templateCache.put('setting/templates/email/bookconfirmationemail.html', bookConfirmationEmailTemplate);
+
+        $templateCache.put('setting/templates/rates.html', ratesTemplate);
+        $templateCache.put('setting/templates/rates/extras.html', extrasTemplate);
+        $templateCache.put('setting/templates/rates/rateplans.html', rateplansTemplate);
     }
     module.run(run);
 
@@ -68,6 +102,36 @@ define(function(require){
                 views: {
                     'setting': {
                         templateUrl: 'setting/templates/rooms.html',
+                        controller: 'CompanyController'
+                    }
+                }
+            })
+            .state('base3.setting.accounting', {
+                url: '/settings/accounting',
+                authorization: true,
+                views: {
+                    'setting': {
+                        templateUrl: 'setting/templates/accounting.html',
+                        controller: 'CompanyController'
+                    }
+                }
+            })
+            .state('base3.setting.email', {
+                url: '/settings/email',
+                authorization: true,
+                views: {
+                    'setting': {
+                        templateUrl: 'setting/templates/email.html',
+                        controller: 'CompanyController'
+                    }
+                }
+            })
+            .state('base3.setting.rates', {
+                url: '/settings/rates',
+                authorization: true,
+                views: {
+                    'setting': {
+                        templateUrl: 'setting/templates/rates.html',
                         controller: 'CompanyController'
                     }
                 }

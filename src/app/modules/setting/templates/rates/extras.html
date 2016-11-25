@@ -1,0 +1,70 @@
+<div class="extras">
+    <h1 class="Fz(30px) Fw(600)">Extra Settings </h1>
+    <button id="create-extra-button" class="btn btn-primary">Create New Extra</button>
+    <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
+    <div class="panel panel-default extra-div Mt(20px)" id="3826">
+        <div class="panel-heading form-inline">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    Extra Name
+                </div>
+                <input name="extra-name" type="text" class="form-control" value="New Extra">
+
+            </div>
+            <button class="delete-extra-button btn btn-danger pull-right">Delete</button>
+        </div>
+        <div class="panel-body form-horizontal">
+            <div class="alert alert-success hidden updated-message" role="alert">Updated!</div>
+
+            <div class="form-group">
+                <label for="extra-type" class="col-sm-2 control-label">
+                    Extra Type:
+                </label>
+                <div class="col-sm-10">
+                    <select name="extra-type" class="form-control">
+                        <option value="item">Item</option>
+                        <option value="rental">Rental</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="charging-scheme" class="col-sm-2 control-label">
+                    Charging scheme:
+                </label>
+                <div class="col-sm-10">
+                    <select name="charging-scheme" class="form-control">
+                        <option value="on_start_date" selected="selected">On start date</option>
+                        <option value="once_a_day">Once a day</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="extra-name" class="col-sm-2 control-label">
+                    Charge Type
+                </label>
+                <div class="col-sm-10">
+                    <select name="extra-charge-type-id" class="form-control">
+                        <option value="8490026128">
+                            Room Charge								</option>
+                        <option value="8490026131">
+                            Service Charge								</option>
+                        <option value="8490026134">
+                            Gratuity								</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group rate-group" id="2488">
+                <label for="extra-name" class="col-sm-2 control-label">
+                    Default Rate
+                </label>
+                <div class="col-sm-10">
+                    <input name="default-rate" type="text" class="form-control" value="0.00">
+                </div>
+            </div>
+            <button class="save-extra-button btn btn-success">Update Extra</button>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="accounting">
+    <uib-tabset
+            active="activePill"
+            vertical="true"
+            type="pills">
+        <uib-tab index="0" heading="Invoice">
+            <ng-include src="'setting/templates/accounting/invoice.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Charge Types">
+            <ng-include src="'setting/templates/accounting/chargetypes.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="Tax Types">
+            <ng-include src="'setting/templates/accounting/taxtypes.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" heading="Payment Types">
+            <ng-include src="'setting/templates/accounting/paymenttypes.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="4" heading="Customer Types">
+            <ng-include src="'setting/templates/accounting/customertypes.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="5" heading="Customer Fields">
+            <ng-include src="'setting/templates/accounting/customerfields.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="6" heading="Payment Gateways">
+            <ng-include src="'setting/templates/accounting/paymentgateways.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+</div>
