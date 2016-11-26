@@ -1,0 +1,112 @@
+<div modal="showModal" close="vm.cancel()">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" data-ng-click="cancel()">×</a>
+        <div class="column">
+          <h4>Customer Information <button>History</button></h4>
+
+        </div>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Name</label>
+                <div class="col-md-9">
+                    <input ng-model="Customer.name" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Customer Type</label>
+                <div class="col-md-9">
+                    <select class="form-control" ng-model="Customer.customerType">
+                        <option value="Traveller" selected>Traveller</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Email</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Phone</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Phone 2</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.phone2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Fax</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.fax">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Address</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Address 2</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.address2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">City</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.city">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Region</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.region">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Country</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.country">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Postal Code</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.postalCode">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Credit Card</label>
+                <div class="col-md-6">
+                    <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="•••• •••• •••• ••••" maxlength="16" ng-model="Customer.creditCardCode">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="MM / YY" maxlength="7" ng-model="Customer.creditCardDate" ng-change="changeCreditCardDate()">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">CVC</label>
+                <div class="col-md-9">
+                    <input placeholder="•••" type="text" class="form-control" maxlength="3" ng-model="Customer.cvc">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label col-md-3 Fw(600)">Notes</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" ng-model="Customer.note">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success background-blue" ng-click="ok()">Update</button>
+        <button class="btn background-graywhite" ng-click="cancel()">Close</button>
+    </div>
+</div>

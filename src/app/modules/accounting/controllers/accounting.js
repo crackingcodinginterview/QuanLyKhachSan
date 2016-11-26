@@ -12,6 +12,7 @@ define(function(require) {
         var dataSearch = [];
         var dataRoot = [];
         vm.keySearch;
+        $scope.user = {};
         //ajaxLoadingFactory.show();
         //ajaxLoadingFactory.hide();
         //toaster.pop('error', 'Note', 'Error Happened!');
@@ -43,7 +44,7 @@ define(function(require) {
         }
 
         function init() {
-          ajaxLoadingFactory.show();
+            ajaxLoadingFactory.show();
             CustomerService.getAllCustomer()
                 .then(function(resp) {
                     data = resp;
@@ -51,7 +52,7 @@ define(function(require) {
                     vm.tableParams = new NgTableParams({}, {
                         dataset: data
                     });
-                      toaster.pop('success', 'Note', 'Get all customer success');
+                    toaster.pop('success', 'Note', 'Get all customer success');
                     //console.log("Get all customer success", resp);
                 })
                 .catch(function(error) {
@@ -73,8 +74,43 @@ define(function(require) {
             });
         }
 
+        function showProfileModal(user) {
+          $scope.user = user;
+            return $uibModal.open({
+                animation: true,
+                templateUrl: 'src/app/modules/accounting/templates/showProfile.html',
+                controller: 'ShowProfileController',
+                controllerAs: 'vm',
+                scope: $scope,
+            });
+        }
+
+        vm.showProfile = function(user) {
+            showProfileModal(user).result.then(function() {});
+        }
+
         function onCreateNewCustomer() {
-            getNewCustomerModal().result.then(function() {
+            getNewCustomerModal().result.then(function() {});
+        }
+
+        vm.deleteCustomer = function(user) {
+            console.log(user);
+            CustomerService.deleteCustomer(user).then(function(dataSearch) {
+                CustomerService.getAllCustomer()
+                    .then(function(resp) {
+                        data = resp;
+                        dataRoot = data;
+                        vm.tableParams = new NgTableParams({}, {
+                            dataset: data
+                        });
+                        console.log("Get all customer success", resp);
+                        toaster.pop('success', 'Note', 'Delete success!');
+                    })
+                    .catch(function(error) {
+                        console.log("Get all customer error", error);
+                    });;
+            }, function(err) {
+                console.log(err);
             });
         }
 
