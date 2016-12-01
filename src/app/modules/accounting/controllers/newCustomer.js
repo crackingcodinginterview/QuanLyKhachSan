@@ -3,9 +3,8 @@ define(function(require) {
 
     var angular = require('angular');
 
-    NewCustomerController.$inject = ['$uibModalInstance', 'customer', 'customerTypeList'];
-
-    function NewCustomerController($uibModalInstance, customer, customerTypeList) {
+    ctrlFn.$inject = ['$uibModalInstance', 'customer', 'customerTypeList'];
+    function ctrlFn($uibModalInstance, customer, customerTypeList) {
         var vm = this;
 
         function initModel() {
@@ -27,6 +26,5 @@ define(function(require) {
 
         initModel();
     }
-
-    return NewCustomerController;
+    return ctrlFn;
 });
