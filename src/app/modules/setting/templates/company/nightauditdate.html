@@ -1,11 +1,14 @@
 <div class="nightauditdate">
     <h1 class="Fz(30px) Fw(600)">Night Audit & Date Settings</h1>
     <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
-    <form class="Mt(10px)">
+    <form class="Mt(10px)"
+          name="vm.nightAuditDateForm.$selector">
         <div class="form-group">
             <label for="" class="control-label Fw(600)">Selling Date</label>
             <div class="form-inline">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control"
+                       name="sellingDate"
+                       data-ng-model="vm.nightAuditDateForm.data.sellingDate">
                 <button class="btn btn-default">Manually run Night Audit</button>
             </div>
             <p class="help-block">* Do not touch this unless you clearly know what you're doing :o</p>
@@ -13,42 +16,53 @@
         <div class="form-group">
             <label for="" class="control-label Fw(600)">Automatic Night Audit</label>
             <div class="form-inline">
-                <input type="checkbox">
+                <input type="checkbox"
+                       name="nightAuditAutoRunActive"
+                       data-ng-model="vm.nightAuditDateForm.data.nightAuditAutoRun.active">
                 Run Night Audit automatically after
-                <select class="form-control">
-                    <option value="a">fsafasfa</option>
-                    <option value="a">fsafasfa</option>
-                    <option value="a">fsafasfa</option>
+                <select class="form-control"
+                        name="nightAuditAutoRunTimeId"
+                        data-ng-model="vm.nightAuditDateForm.data.nightAuditAutoRun.timeId"
+                        data-ng-options="nightAuditAutoRuntime.id as nightAuditAutoRuntime.name for (id, nightAuditAutoRuntime) in vm.nightAuditAutoRuntimeList">
+                    <option value="">-- choose nightauditautoruntime --</option>
                 </select>
             </div>
             <p class="help-block">* This option should be disabled if you are manipulating the selling date</p>
         </div>
         <div class="form-group form-inline">
-            <input type="checkbox">
+            <input type="checkbox"
+                   name="nightAuditChargeInHouseOnly"
+                   data-ng-model="vm.nightAuditDateForm.data.nightAuditChargeInHouseOnly">
             Apply night audit charges to checked-in bookings only (Not reservations)
         </div>
         <div class="form-group form-inline">
-            <input type="checkbox">
+            <input type="checkbox"
+                   name="nightAuditIgnoreCheckOutDate"
+                   data-ng-model="vm.nightAuditDateForm.data.nightAuditIgnoreCheckOutDate">
             Apply night audit charges to checked-in bookings regardless of their check-out date
         </div>
         <div class="form-group">
             <label for="" class="Fw(600)">Default Room Charge Type</label>
             <div class="form-inline">
-            <select class="form-control">
-                <option value="a">fsafasfa</option>
-                <option value="a">fsafasfa</option>
-                <option value="a">fsafasfa</option>
-            </select>
+                <select class="form-control"
+                        name="defaultRoomChargeTypeId"
+                        data-ng-model="vm.nightAuditDateForm.data.defaultRoomChargeTypeId"
+                        data-ng-options="chargeType.id as chargeType.name for (id, chargeType) in vm.roomChargeTypeList">
+                    <option value="">-- choose chargetype --</option>
+                </select>
             </div>
             <p class="help-block">* When Night Audit runs, all in-house guests will be charged with this Charge Type</p>
         </div>
         <div class="form-group">
             <label for="" class="Fw(600)">Automatic Checkout</label>
             <div class="form-inline">
-                <input type="checkbox">
+                <input type="checkbox"
+                       name="nightAuditForceCheckOut"
+                       data-ng-model="vm.nightAuditDateForm.data.nightAuditForceCheckOut">
                 Automatically check-out guests if they are scheduled to check out
             </div>
         </div>
-        <button class="btn btn-default col-md-offset-4">Update</button>
+        <button class="btn btn-default col-md-offset-4"
+        data-ng-click="vm.onNightAuditDateUpdateButton_Click()">Update</button>
     </form>
 </div>

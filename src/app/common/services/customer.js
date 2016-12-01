@@ -4,8 +4,8 @@ define(function (require) {
 
     var module = angular.module('common.context.customer', []);
 
-    service.$inject = ['$firebaseObject', '$firebaseArray'];
-    function service($firebaseObject, $firebaseArray){
+    service.$inject = ['$firebaseArray'];
+    function service($firebaseArray){
         //Nội dung service ở đây
         var service = {};
         var _ref = firebase.database().ref('khachhang');
@@ -23,7 +23,8 @@ define(function (require) {
          * Lấy toàn bộ thông tin của customer về dưới dạng mảng
          * @returns {*}
          */
-        function getAllCustomer(){
+        function getAllCustomer(userId, propertyId){
+            _ref = firebase.database().ref('members').child(userId).child(propertyId).child('accounting').child('customers');
             return $firebaseArray(_ref).$loaded();
         }
 

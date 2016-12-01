@@ -1,0 +1,21 @@
+<div modal="showModal" close="vm.cancel()">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" data-ng-click="cancel()">×</a>
+        <h4>Edit Room Note</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal Px(20px)"
+              novalidate
+              name="vm.roomNoteForm.$selector">
+            <div class="form-group">
+                <textarea id="room-notes" class="form-control" rows="5"
+                          name="roomNote"
+                          data-ng-model="vm.roomNoteForm.data.note"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success background-blue" ng-click="vm.ok(vm.roomNoteForm)">Update</button>
+        <button class="btn background-graywhite" ng-click="vm.cancel()">Close</button>
+    </div>
+</div>

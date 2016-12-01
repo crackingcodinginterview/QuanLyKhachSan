@@ -1,25 +1,22 @@
 <div class="invoiceemail">
     <h1 class="Fz(30px) Fw(600)">Invoice Email Settings</h1>
     <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
-    <form class="Mt(20px)" method="post" action="https://v2.roomsy.com/settings/email/save_invoice_email">
+    <form class="Mt(20px)"
+    novalidate
+    name="vm.modelInvoiceForm.$selector">
         <fieldset>
             <ul>
                 <li>
-                    <input name="send_invoice_email_automatically" type="checkbox" autocomplete="off"> Automatically send email to the guest upon checkout
+                    <input name="send_invoice_email_automatically" type="checkbox" autocomplete="off"
+                    data-ng-model="vm.invoiceEmailForm.data.sendInvoiceEmailAutomatically"> Automatically send email to the guest upon checkout
                 </li>
                 <li>
-                    <input name="ask_for_review_in_invoice_email" type="checkbox" autocomplete="off"> Ask the guest for review on the invoice email
+                    <input name="ask_for_review_in_invoice_email" type="checkbox" autocomplete="off"
+                    data-ng-model="vm.invoiceEmailForm.data.askForReviewInInvoiceEmail"> Ask the guest for review on the invoice email
 
-                </li>
-                <li class="ask-for-review" style="display: none;">
-                    <input name="redirect_to_trip_advisor" type="checkbox" autocomplete="off"> If the guest leaves 4 out of 5 star feedback or better, redirected him/her to TripAdvisor page below:
-                    <br>
-                    TripAdvisor Review Page URL: <input type="text" name="tripadvisor_link" value="" size="50"> (must include http://)
                 </li>
             </ul>
         </fieldset>
-
-
         <fieldset>
             <h2>
                 Invoice email template
@@ -30,7 +27,8 @@
                     <br><br>
                 </li>
                 <li>
-                    <textarea name="invoice_email_header" style="width:680px;height:180px;resize:none;"></textarea>
+                    <textarea name="invoice_email_header" style="width:680px;height:180px;resize:none;"
+                    data-ng-model="vm.invoiceEmailForm.data.invoiceEmailHeader"></textarea>
                 </li>
                 <li>
                     <br>
@@ -46,12 +44,11 @@
                     sliverwestlife4@gmail.com				<br>
                     +84978678789				<br>
                 </li>
-
-
             </ul>
         </fieldset>
         <div class="col-sm-12 text-center">
-            <input type="submit" name="submit" class="btn btn-default" value="Update">
+            <input type="submit" name="submit" class="btn btn-default" value="Update"
+            data-ng-click="vm.onInvoiceEmailUpdateButton_Click()">
         </div>
     </form>
 </div>

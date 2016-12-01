@@ -2,97 +2,58 @@ define(function(require) {
     'use strict';
 
     var angular = require('angular');
+    var _ = require('lodash');
+    var regionListJson = require('text!../../../common/resources/regionList.json');
+    var pricingListJson = require('text!../../../common/resources/pricingList.json');
 
-    ctrlFn.$inject = ['$scope', '$uibModal', 'MemberService', 'toaster', 'ajaxLoadingFactory'];
-
-    function ctrlFn($scope, $uibModal, MemberService, toaster, ajaxLoadingFactory) {
+    ctrlFn.$inject = ['toaster', 'ajaxLoadingFactory', 'UserContext', 'PropertyService', 'ModelFactory', 'RoomService', '$q'];
+    function ctrlFn(toaster, ajaxLoadingFactory, UserContext, PropertyService, ModelFactory, RoomService, $q) {
         //Nội dung của controller ghi ở đây
         var vm = this;
-        var data;
-        vm.region = "";
-        vm.basic = false;
-        vm.monthly = false;
-        vm.yearly = false;
-        vm.option = "NA"
+        var _userInfor = UserContext.getUserInfor();
 
-        function change(data) {
-            if (vm.region != "") {
-                data.region = vm.region;
-            }
-            if (vm.basic === true) {
-                data.subscription = "Basic"
-            }
-            if (vm.monthly === true) {
-                data.subscription = "Premium-monthly"
-            }
-            if (vm.yearly === true) {
-                data.subscription = "Premium-yearly"
-            }
-        }
-
-        vm.basicFuntion = function() {
-            vm.basic = true;
-            vm.monthly = false;
-            vm.yearly = false;
-        }
-
-        vm.monthlyFuntion = function() {
-            vm.basic = false;
-            vm.monthly = true;
-            vm.yearly = false;
-        }
-
-        vm.yearlyFuntion = function() {
-            vm.basic = false;
-            vm.monthly = false;
-            vm.yearly = true;
-        }
-
-        function init() {
-            ajaxLoadingFactory.show();
-            MemberService.getMember()
-                .then(function(resp) {
-                    vm.region = resp.region;
-                    data = resp;
-                    if (data.subscription === "Basic") {
-                      document.getElementById("Basic").checked = true;
-                        vm.basic = true;
-                    } else if (data.subscription === "Premium-monthly") {
-                      document.getElementById("Monthly").checked = true;
-                        vm.monthly = true;
-                    } else if (data.subscription === "Premium-yearly") {
-                      document.getElementById("Yearly").checked = true;
-                        vm.yearly = true;
-                    }
-                    toaster.pop('success', 'Note', 'Get member success!');
-                    //console.log("get member success");
-                })
-                .catch(function(error) {
-                    toaster.pop('error', 'Note', 'Get member error!');
-                    //  console.log("get member error", error);
-                })
-                .finally(function() {
-                    ajaxLoadingFactory.hide();
-                });
-        }
-
-        vm.ok = function() {
-          ajaxLoadingFactory.show();
-            try {
-                change(data);
-                MemberService.saveData(data);
-                toaster.pop('success', 'Note', 'Change member success!');
-                //console.log("Change member success");
-            } catch (e) {
-                toaster.pop('error', 'Note', 'Change member error!');
-                //console.log("Change member error");
-            } finally {
-                ajaxLoadingFactory.hide();
+        function initModel() {
+            vm.subscriptionForm = {
+                data: angular.extend(
+                    { other: {} },
+                    { property: ModelFactory.getModelData('property')}
+                ),
+                ui: {},
+                $selector: null
             };
+            vm.regionList = angular.fromJson(regionListJson);
+            vm.pricingList = angular.fromJson(pricingListJson);
         }
+        function onPageLoading() {
+            ajaxLoadingFactory.show();
+            var promise1 = PropertyService.getPropertyById(_userInfor.userId, _userInfor.propertyId);
+            var promise2 = RoomService.getRoom(_userInfor.userId, _userInfor.propertyId);
+            $q.all([promise1, promise2])
+                .then(function (resp) {
+                    vm.subscriptionForm.data.property = resp[0];
+                    vm.subscriptionForm.data.other.numberOfRooms = resp[1].length;
+                    ajaxLoadingFactory.hide();
+                })
+                .catch(function (error) {
+                    ajaxLoadingFactory.hide();
+                })
+        }
+        function ok(subscriptionForm) {
+            ajaxLoadingFactory.show();
+            PropertyService.updateProperty(_userInfor.userId, _userInfor.propertyId, subscriptionForm.data.property)
+                .then(function (resp) {
+                    toaster.pop('success', 'Note', 'Update subscription success!');
+                    ajaxLoadingFactory.hide();
+                })
+                .catch(function (error) {
+                    toaster.pop('error', 'Note', 'Update subscription fail!');
+                    ajaxLoadingFactory.hide();
+                })
+        }
+        vm.ok = ok;
 
-        init();
-
+        initModel();
+        onPageLoading();
     }
     return ctrlFn;
 });

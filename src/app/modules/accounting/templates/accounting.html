@@ -1,21 +1,24 @@
 <div class="accounting col-md-12 Mb(240px)">
     <h1 class="Fz(36px) Fw(500)">Accounting</h1>
     <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
-    <form class="form-inline Mt(20px) Bdw(1px) Bds(s) Bdc(#ddd) P(15px) Bdrs(5px) Fz(18px)">
+    <form class="form-inline Mt(20px) Bdw(1px) Bds(s) Bdc(#ddd) P(15px) Bdrs(5px) Fz(18px)"
+          novalidate
+          name="vm.searchCustomerForm.$selector">
         <div class="form-group">
-            <input type="text" ng-model="vm.keySearch" class="form-control col-md-4 Fz(18px)" placeholder="Search Keywords">
+            <input type="text" class="form-control col-md-4 Fz(18px)" placeholder="Search Keywords"
+                   name="customerName"
+                   data-ng-model="vm.searchCustomerForm.data.customerName">
         </div>
         <div class="form-group">
-            <select class="form-control col-md-4 Fz(18px)" name="customer_type_id">
+            <select class="form-control col-md-4 Fz(18px)"
+                    name="customer_type_id"
+                    data-ng-model="vm.searchCustomerForm.data.customerTypeId"
+                    data-ng-options="customerType.$id as customerType.name for customerType in vm.customerTypeList">
                 <option value="">All Customer Types</option>
-                <option value="Traveller">Traveller</option>
             </select>
         </div>
-        <div class="form-group">
-            <input type="checkbox" name="show_deleted" value="checked">
-            <label class="control-label Fz(18px)"> Show deleted customers</label>
-        </div>
-        <button type="submit" name="submit" value="search" ng-click="vm.search()" class="btn btn-default background-graywhite Fz(18px)">Search Customers</button>
+        <button type="submit" name="submit" value="search"
+                ng-click="vm.search(vm.searchCustomerForm)" class="btn btn-default background-graywhite Fz(18px)">Search Customers</button>
         <button data-ng-click="vm.onCreateNewCustomer()" class="btn btn-default pull-right background-graywhite Fz(18px)">Create New Customer</button>
     </form>
     <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
@@ -41,8 +44,8 @@
                        aria-expanded="false"><span class="caret"></span></a>
                     <ul class="dropdown-menu Fz(16px)">
                         <li><a href="#">Show Profile</a></li>
-                        <li><a data-ui-sref="base3.historycustomer">Show History</a></li>
-                        <li><a href="#">Delete Customer</a></li>
+                        <li data-ng-click="vm.onEditCustomer(user)"><a >Show History</a></li>
+                        <li data-ng-click="vm.onDeleteCustomer(user)"><a>Delete Customer</a></li>
                     </ul>
                 </div>
             </td>

@@ -2,85 +2,110 @@ define(function(require) {
     'use strict';
 
     var angular = require('angular');
+    var _ = require('lodash');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'CustomerService', 'toaster', 'ajaxLoadingFactory'];
-
-    function ctrlFn($scope, NgTableParams, $uibModal, CustomerService, toaster, ajaxLoadingFactory) {
-        //Nội dung của controller ghi ở đây
+    ctrlFn.$inject = ['NgTableParams', '$uibModal', 'CustomerService', 'toaster', 'ajaxLoadingFactory', 'UserContext', 'ModelFactory', '$state', 'AccountingService', '$q'];
+    function ctrlFn(NgTableParams, $uibModal, CustomerService, toaster, ajaxLoadingFactory, UserContext, ModelFactory, $state, AccountingService, $q) {
         var vm = this;
-        var data = [];
-        var dataSearch = [];
-        var dataRoot = [];
-        vm.keySearch;
-        //ajaxLoadingFactory.show();
-        //ajaxLoadingFactory.hide();
-        //toaster.pop('error', 'Note', 'Error Happened!');
+        var _userInfor = UserContext.getUserInfor();
 
-        vm.search = function() {
-            if (vm.keySearch != null && vm.keySearch != '') {
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].name.indexOf(vm.keySearch) > -1 || data[i].$id.indexOf(vm.keySearch) > -1 ||
-                        data[i].phone.indexOf(vm.keySearch) > -1 || data[i].customerType.indexOf(vm.keySearch) > -1) {
-                        dataSearch.push(data[i]);
-                    }
-                }
-                if (dataSearch.length === 0) {
-                    toaster.pop('error', 'Note', 'Not found customer!!!');
-                    //console.log("not found customer!!!");
-                } else {
-                    data = dataSearch;
-                    vm.tableParams = new NgTableParams({}, {
-                        dataset: data
-                    });
-                    dataSearch = [];
-                    data = dataRoot;
-                }
-
-            } else {
-                dataSearch = [];
-                init();
+        function initModel() {
+            vm.searchCustomerForm = {
+                data: {},
+                ui: {},
+                $selector: null
             }
         }
-
-        function init() {
-          ajaxLoadingFactory.show();
-            CustomerService.getAllCustomer()
+        function onPageLoading() {
+            ajaxLoadingFactory.show();
+            var promise1 = CustomerService.getAllCustomer(_userInfor.userId, _userInfor.propertyId);
+            var promise2 = AccountingService.getCustomerType(_userInfor.userId, _userInfor.propertyId);
+            $q.all([promise1, promise2])
                 .then(function(resp) {
-                    data = resp;
-                    dataRoot = data;
+                    vm.customerList = resp[0];
+                    vm.customerDataset = resp[0];
+                    vm.customerTypeList = resp[1];
                     vm.tableParams = new NgTableParams({}, {
-                        dataset: data
+                        dataset: vm.customerDataset
                     });
-                      toaster.pop('success', 'Note', 'Get all customer success');
-                    //console.log("Get all customer success", resp);
+                    ajaxLoadingFactory.hide();
                 })
                 .catch(function(error) {
-                    toaster.pop('error', 'Note', 'Get all customer error');
-                    //console.log("Get all customer error", error);
-                })
-                .finally(function() {
                     ajaxLoadingFactory.hide();
                 });
-
         }
-
-        function getNewCustomerModal() {
+        function showCustomerModal(customer) {
             return $uibModal.open({
                 animation: true,
                 templateUrl: 'accounting/templates/newCustomer.html',
                 controller: 'NewCustomerController',
                 controllerAs: 'vm',
+                resolve: {
+                    customer: function () {
+                        return customer;
+                    },
+                    customerTypeList: function () {
+                        return vm.customerTypeList;
+                    }
+                }
             });
         }
-
         function onCreateNewCustomer() {
-            getNewCustomerModal().result.then(function() {
+            var newCustomer = ModelFactory.getModelData('customer');
+            showCustomerModal(newCustomer)
+                .result
+                .then(function(resp) {
+                    vm.customerList.$add(resp);
+                })
+                .then(function (resp) {
+                    toaster.pop('success', 'Note', 'Add customer success!');
+                    $state.reload();
+                })
+                .catch(function (error) {
+                    toaster.pop('error', 'Note', 'Add customer fail!');
+                })
+        }
+        function onEditCustomer(customer){
+            showCustomerModal(customer)
+                .result
+                .then(function(resp) {
+                    customer = angular.extend(customer, resp);
+                    vm.customerList.$save(customer);
+                })
+                .then(function (resp) {
+                    toaster.pop('success', 'Note', 'Edit customer success!');
+                    $state.reload();
+                })
+                .catch(function (error) {
+                    toaster.pop('error', 'Note', 'Edit customer fail!');
+                })
+        }
+        function onDeleteCustomer(customer) {
+            vm.customerList.$remove(customer)
+                .then(function (resp) {
+                    toaster.pop('success', 'Note', 'Delete customer success!');
+                    $state.reload();
+                })
+                .catch(function (error) {
+                    toaster.pop('error', 'Note', 'Delete customer fail!');
+                });
+        }
+        function search(searchCustomerForm) {
+            var customerName = searchCustomerForm.data.customerName.toLowerCase();
+            vm.customerDataset = _.filter(vm.customerList, function (customer) {
+                return customer.name.indexOf(customerName) > -1 && (!searchCustomerForm.customerTypeId || (customer.customerTypeId === searchCustomerForm.customerTypeId));
+            });
+            vm.tableParams = new NgTableParams({}, {
+                dataset: vm.customerDataset
             });
         }
-
         vm.onCreateNewCustomer = onCreateNewCustomer;
+        vm.onEditCustomer = onEditCustomer;
+        vm.onDeleteCustomer = onDeleteCustomer;
+        vm.search = search;
 
-        init();
+        initModel();
+        onPageLoading();
     }
 
     return ctrlFn;

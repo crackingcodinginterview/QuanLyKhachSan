@@ -3,15 +3,15 @@
         <h1 class="D(ib) Fz(36px) Fw(500) Va(m)" style="display: inline-block">My Properties</h1>
         <button class="btn btn-primary Fz(18px) Mstart(10px)" style="display: inline-block" data-ng-click="vm.onCreateNewProperty()">Add Property</button>
     </div>
-    <div ng-repeat="property in dataRoot">
-    <div class="clearfix Mt(20px) Bdc(#ddd) Bds(s) Bdw(1px) P(20px) Bdrs(5px)">
-        <div class="pull-left">
-            <span class="glyphicon glyphicon-home"></span>
-            <span class="Fz(18px) Fw(600)">{{property.name}} (ID: {{property.$id}})</span>
-        </div>
-        <div class="pull-right">
-            <button class="btn btn-primary background-green Fz(18px)">Open Property</button>
+    <div ng-repeat="(id, property) in vm.dataRoot">
+        <div class="clearfix Mt(20px) Bdc(#ddd) Bds(s) Bdw(1px) P(20px) Bdrs(5px)">
+            <div class="pull-left">
+                <span class="glyphicon glyphicon-home"></span>
+                <span class="Fz(18px) Fw(600)">{{property.name}} (ID: {{id}})</span>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-primary background-green Fz(18px)">Open Property</button>
+            </div>
         </div>
     </div>
-  </div>
 </div>

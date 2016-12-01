@@ -6,19 +6,27 @@
             <th>Customer Type Name</th>
             <th>Delete</th>
         </tr>
-
-
-        <tr class="customer-type-tr" id="8746">
-            <td>
-                <input name="customer-type-name" class="form-control" type="text" value="Traveller" maxlength="45" style="width:250px">
-            </td>
-            <td>
-                <div class="delete-customer-type btn btn-default">X</div>
-            </td>
+        <tr class="customer-type-tr" data-ng-repeat="customerTypeForm in vm.customerTypeFormList">
+            <form
+                    novalidate
+                    name="customerTypeForm.$selector">
+                <td>
+                    <input name="customer-type-name" class="form-control" type="text"
+                           name="name"
+                           data-ng-model="customerTypeForm.data.name"
+                           data-ng-disabled="!customerTypeForm.ui.isNew"
+                           maxlength="45" style="width: 250px">
+                </td>
+                <td>
+                    <div class="delete-customer-type btn btn-default"
+                         data-ng-click="vm.onCustomerTypeDeleteButton_Click(customerTypeForm)">X</div>
+                </td>
+            </form>
         </tr>
-
         </tbody>
     </table>
-    <button id="add-customer-type" class="btn btn-default">Add Customer Type</button>
-    <button id="save-all-customer-types-button" class="btn btn-primary">Save All</button>
+    <button id="add-customer-type" class="btn btn-default"
+            data-ng-click="vm.onAddCustomerType_Click()">Add Customer Type</button>
+    <button id="save-all-customer-types-button" class="btn btn-primary"
+            data-ng-click="vm.onSaveAllCustomerType_Click()">Save All</button>
 </div>

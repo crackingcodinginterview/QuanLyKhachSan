@@ -4,19 +4,14 @@ define(function (require) {
 
     var module = angular.module('common.context.user', []);
 
-    service.$inject = ['$firebaseObject', '$firebaseAuth', '$rootScope', 'localStorageService'];
-    function service($firebaseObject, $firebaseAuth, $rootScope, localStorageService){
+    service.$inject = ['$rootScope', 'localStorageService'];
+    function service($rootScope, localStorageService){
         //Nội dung service ở đây
         var service = {};
         var _currentUser;
 
-        function loadFirebase(){
-            $firebaseAuth().$onAuthStateChanged(function(resp){
-                console.log(resp);
-            });
-        }
-        function getUserId(){
-            return $firebaseAuth().$getAuth().uid;
+        function getUserInfor(){
+            return _currentUser;
         }
         function isAuth(){
             return !!_currentUser;
@@ -40,19 +35,18 @@ define(function (require) {
         }
         function signOut(){
             clearContext();
-            return $firebaseAuth().$signOut();
+            return firebase.auth().signOut();
         }
         function changePassword(newPassword){
-            return $firebaseAuth().$updatePassword(newPassword);
+            return firebase.auth().currentUser.updatePassword(newPassword);
         }
 
         service.fillContext = fillContext;
-        service.getUserId = getUserId;
+        service.getUserInfor = getUserInfor;
         service.signOut = signOut;
         service.changePassword = changePassword;
         service.isAuth = isAuth;
         service.loadFromLocal = loadFromLocal;
-        service.loadFirebase = loadFirebase;
 
         return service;
     }

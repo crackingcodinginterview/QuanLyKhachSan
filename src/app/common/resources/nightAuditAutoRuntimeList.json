@@ -1,0 +1,18 @@
+{
+  "0": {
+    "id": "0",
+    "name": "Same day 09:00 PM"
+  },
+  "1": {
+    "id": "1",
+    "name": "Same day 10:00 PM"
+  },
+  "2": {
+    "id": "2",
+    "name": "Same day 11:00 PM"
+  },
+  "3": {
+    "id": "3",
+    "name": "Midnight"
+  }
+}

@@ -34,7 +34,6 @@ define(function(require){
 
         firebase.initializeApp(appConstant.firebaseConfig);
         UserContext.loadFromLocal();
-        UserContext.loadFirebase();
     }
     module.run(appRun);
     

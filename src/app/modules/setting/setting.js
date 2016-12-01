@@ -35,10 +35,16 @@ define(function(require){
 
     var controller = require('./controllers/setting');
     var companyController = require('./controllers/company');
+    var roomsController = require('./controllers/rooms');
+    var emailController = require('./controllers/email');
+    var accountingController = require('./controllers/accounting');
 
     //Đăng kí controller
     module.controller('SettingController', controller);
     module.controller('CompanyController', companyController);
+    module.controller('RoomsController', roomsController);
+    module.controller('EmailController', emailController);
+    module.controller('AccountingSettingController', accountingController);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
@@ -92,7 +98,8 @@ define(function(require){
                 views: {
                     'setting': {
                         templateUrl: 'setting/templates/company.html',
-                        controller: 'CompanyController'
+                        controller: 'CompanyController',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -102,7 +109,8 @@ define(function(require){
                 views: {
                     'setting': {
                         templateUrl: 'setting/templates/rooms.html',
-                        controller: 'CompanyController'
+                        controller: 'RoomsController',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -112,7 +120,8 @@ define(function(require){
                 views: {
                     'setting': {
                         templateUrl: 'setting/templates/accounting.html',
-                        controller: 'CompanyController'
+                        controller: 'AccountingSettingController',
+                        controllerAs: 'vm'
                     }
                 }
             })
@@ -122,7 +131,8 @@ define(function(require){
                 views: {
                     'setting': {
                         templateUrl: 'setting/templates/email.html',
-                        controller: 'CompanyController'
+                        controller: 'EmailController',
+                        controllerAs: 'vm'
                     }
                 }
             })

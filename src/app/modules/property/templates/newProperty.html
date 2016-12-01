@@ -1,46 +1,56 @@
 <div class="newproperty">
     <div class="modal-header">
-        <a class="close" data-dismiss="modal" data-ng-click="cancel()">×</a>
+        <a class="close" data-dismiss="modal" data-ng-click="vm.cancel()">×</a>
         <h4>Add Property</h4>
     </div>
     <div class="modal-body">
-        <form class="form-horizontal">
+        <form class="form-horizontal"
+              novalidate
+              name="vm.newPropertyForm.$selector">
             <div class="form-group">
                 <label class="control-label col-md-3 Fw(600)">Property Name</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control"  ng-model="property.name" >
+                    <input type="text" class="form-control"
+                           name="name"
+                           ng-model="vm.newPropertyForm.data.property.name" >
                 </div>
             </div>
             <div class="form-group">
                 <label  class="control-label col-md-3 Fw(600)">Number of Rooms</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" ng-model="property.rooms">
+                    <input type="text" class="form-control"
+                           name="numerOfRooms"
+                           ng-model="vm.newPropertyForm.data.other.numerOfRooms">
                 </div>
             </div>
             <div class="form-group">
                 <label  class="control-label col-md-3 Fw(600)">Region</label>
                 <div class="col-md-9">
-                    <select class="form-control" ng-model="property.region">
-                        <option value="North America">North America</option>
-                        <option value="Australia and New Zealand">Australia and New Zealand</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Europe and Africa">Europe and Africa</option>
+                    <select class="form-control"
+                            name="regionId"
+                            data-ng-model="vm.newPropertyForm.data.property.regionId"
+                            data-ng-options="region.id as region.name for (id, region) in vm.regionList"
+                    >
+                        <option value="">-- select region --</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label  class="control-label col-md-3 Fw(600)">Pricing Plan</label>
                 <div class="col-md-9">
-                    <select class="form-control" ng-model="property.Pricing">
-                        <option value="Basic">Basic</option>
-                        <option value="Premium">Premium</option>
+                    <select class="form-control"
+                            name="pricingPlanId"
+                            ng-model="vm.newPropertyForm.data.property.pricingPlanId"
+                            data-ng-options="pricing.id as pricing.name for (id, pricing) in vm.pricingList"
+                    >
+                        <option value="">-- select pricing --</option>
                     </select>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success background-green" ng-click="ok()">Add Property</button>
-        <button class="btn background-graywhite" ng-click="cancel()">Close</button>
+        <button class="btn btn-success background-green" ng-click="vm.ok(vm.newPropertyForm)">Add Property</button>
+        <button class="btn background-graywhite" ng-click="vm.cancel()">Close</button>
     </div>
 </div>

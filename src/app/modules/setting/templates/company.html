@@ -3,16 +3,16 @@
             active="activePill"
             vertical="true"
             type="pills">
-        <uib-tab index="0" heading="General Information">
+        <uib-tab index="0" heading="General Information" data-ng-click="vm.onGeneralInformationTab_Click()">
             <ng-include src="'setting/templates/company/generalinfomation.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="1" heading="Employees">
-            <ng-include src="'setting/templates/company/employees.html'"></ng-include>
-        </uib-tab>
-        <uib-tab index="2" heading="Night Audit & Date">
+        <!--<uib-tab index="1" heading="Employees">-->
+            <!--<ng-include src="'setting/templates/company/employees.html'"></ng-include>-->
+        <!--</uib-tab>-->
+        <uib-tab index="2" heading="Night Audit & Date" data-ng-click="vm.onNightAuditDateTab_Click()">
             <ng-include src="'setting/templates/company/nightauditdate.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="3" heading="Policies">
+        <uib-tab index="3" heading="Policies" data-ng-click="vm.onPoliciesTab_Click()">
             <ng-include src="'setting/templates/company/policies.html'"></ng-include>
         </uib-tab>
     </uib-tabset>

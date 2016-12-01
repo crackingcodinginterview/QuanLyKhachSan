@@ -1,10 +1,46 @@
 <div class="room">
     <h1 class="Mb(10px) Fz(30px) Fw(600)">Room Settings</h1>
-    <button class="btn btn-primary">Add Room</button>
-    <button class="btn btn-default">Save All</button>
+    <button class="btn btn-primary"
+            data-ng-click="vm.onAddRoomButton_Click()">Add Room</button>
     <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
-    <table class="table table-hover">
+    <table class="table table-hover Mt(20px)">
         <tbody>
+        <tr data-ng-show="vm.newRoomForm.ui.isShow">
+            <form novalidate
+                  name="vm.newRoomForm.$selector"
+            >
+                <td>
+                    <input type="text" class="form-control"
+                           name="name"
+                           data-ng-model="vm.newRoomForm.data.name">
+                </td>
+                <td>
+                    <select class="form-control"
+                            name="roomTypeId"
+                            data-ng-model="vm.newRoomForm.data.roomTypeId"
+                            data-ng-options="roomTypeId as roomType.nameType for (roomTypeId, roomType) in vm.roomType">
+                        <option value="">-- choose roomtype --</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control"
+                            name="houseKeepingGroup"
+                            data-ng-model="vm.newRoomForm.data.houseKeepingGroup"
+                            data-ng-options="item as item for item in vm.houseKeepingGroup">
+                        <option value="">-- choose housekeeping group --</option>
+                    </select>
+                </td>
+                <td class="text-center">
+                    <input type="checkbox"
+                           name="canBeSoldOnline"
+                           data-ng-model="vm.newRoomForm.data.canBeSoldOnline">
+                </td>
+                <td>
+                    <button class="btn btn-primary"
+                    data-ng-click="vm.onSaveRoomButton_Click(vm.newRoomForm)">Save</button>
+                </td>
+            </form>
+        </tr>
         <tr>
             <th class="Fw(600)">
                 Room Name
@@ -20,47 +56,36 @@
             </th>
             <th></th>
         </tr>
-        <tr>
+        <tr data-ng-repeat="room in vm.room">
             <td>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control"
+                       name="name"
+                       data-ng-model="room.name"
+                       disabled>
             </td>
             <td>
-                <select name="" id="" class="form-control">
-                    <option value=""></option>
-                    <option value=""></option>
+                <select class="form-control"
+                        name="roomTypeId"
+                        data-ng-model="room.roomTypeId"
+                        data-ng-options="roomTypeId as roomType.nameType for (roomTypeId, roomType) in vm.roomType"
+                        disabled>
+                    <option value="">-- choose roomtype --</option>
                 </select>
             </td>
             <td>
-                <select name="" id="" class="form-control">
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-            </td>
-            <td class="text-center">
-                <input type="checkbox">
-            </td>
-            <td>
-                <button class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="text" class="form-control">
-            </td>
-            <td>
-                <select name="" id="" class="form-control">
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-            </td>
-            <td>
-                <select name="" id="" class="form-control">
-                    <option value=""></option>
-                    <option value=""></option>
+                <select class="form-control"
+                        name="houseKeepingGroup"
+                        data-ng-model="room.houseKeepingGroup"
+                        data-ng-options="item as item for item in vm.houseKeepingGroup"
+                        disabled>
+                    <option value="">-- choose housekeeping group --</option>
                 </select>
             </td>
             <td class="text-center">
-                <input type="checkbox">
+                <input type="checkbox"
+                       name="canBeSoldOnline"
+                       data-ng-model="room.canBeSoldOnline"
+                       disabled>
             </td>
             <td>
                 <button class="btn btn-danger">Delete</button>

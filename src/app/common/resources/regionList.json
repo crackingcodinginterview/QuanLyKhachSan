@@ -1,0 +1,18 @@
+{
+  "0": {
+    "id": "0",
+    "name": "North America"
+  },
+  "1": {
+    "id": "1",
+    "name": "Austrialia and New Zealand"
+  },
+  "2": {
+    "id": "2",
+    "name": "Asia"
+  },
+  "3": {
+    "id": "3",
+    "name": "Europe and Africa"
+  }
+}

@@ -59,6 +59,7 @@ define(function(require){
                 UserContext.changePassword($scope.newPassword)
                     .then(function(resp){
                         toaster.pop('success', 'Note', 'Change password success!');
+                        ajaxLoadingFactory.hide();
                         return UserContext.signOut();
                     })
                     .then(function(resp){
@@ -66,8 +67,6 @@ define(function(require){
                     })
                     .catch(function(error){
                         toaster.pop('error', 'Note', 'Something wrong!');
-                    })
-                    .finally(function(resp){
                         ajaxLoadingFactory.hide();
                     });
             }

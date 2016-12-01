@@ -1,10 +1,13 @@
 <div class="bookconfirmationemail">
     <h1 class="Fz(30px) Fw(600)">Booking Confirmation Email Settings</h1>
     <div class="Bdc(#eee) Bds(s) Bdw(1px) W(100%) Mt(20px)"></div>
-    <form class="Mt(20px) Px(40px)">
+    <form class="Mt(20px) Px(40px)"
+    novalidate
+    name="vm.bookingConfirmationEmailForm.$selector">
         <div class="form-group">
             <p>Thanks for booking your stay at vo minh quoc</p>
-            <textarea name="booking_confirmation_email_header" style="width:680px;height:180px;resize:none;"></textarea>
+            <textarea name="booking_confirmation_email_header" style="width:680px;height:180px;resize:none;"
+            data-ng-model="vm.bookingConfirmationEmailForm.data.bookingConfirmationEmailHeader"></textarea>
         </div>
         <div class="form-group">
             <p>Guest Information</p>
@@ -27,7 +30,8 @@
             <p>Website: </p>
         </div>
         <div class="form-group">
-            <button class="btn btn-default">Update</button>
+            <button class="btn btn-default"
+            data-ng-click="vm.onBookingConfirmationEmailUpdateButton_Click()">Update</button>
         </div>
     </form>
 </div>

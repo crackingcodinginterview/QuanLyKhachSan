@@ -5,19 +5,25 @@
         <li class="Fl(start) Pstart(10px)"><a class="D(b)" href="">Edit Rooms</a></li>
     </ul>
     <table ng-table="vm.tableParams" show-filter="false" class="table Mt(20px)">
-        <tr ng-repeat="user in $data">
-            <td title="'Rooms'" filter="{ name: 'text'}" class="text-center">
-                {{user.$id}}</td>
+        <tr ng-repeat="room in $data">
+            <td title="'Room Name'" filter="{ name: 'text'}" class="text-center">
+                {{room.name}}</td>
             <td title="'Room Types'" filter="{ name: 'text'}" class="text-center">
-                {{user.name}}</td>
+                {{room.name}}</td>
             <td title="'Customer'" filter="{ name: 'text'}" class="text-center">
-                {{user.phone}}</td>
-            <td title="'Clean All Rooms'" filter="{ name: 'text'}" class="text-center">
-                {{user.name}}</td>
+                {{room.phone}}</td>
+            <td title="'Status'" filter="{ name: 'text'}" class="text-center form-group">
+                <select class="form-control"
+                data-ng-model="room.roomStatusId"
+                data-ng-options="roomStatus.id as roomStatus.name for (id, roomStatus) in vm.roomStatusList"
+                        ng-change="vm.updateRoom(room)">
+                </select>
+            </td>
             <td title="'Room Notes'" filter="{ name: 'text'}" class="text-center">
-                {{user.name}}</td>
-            <td title="'aa'" filter="{ name: 'text'}" class="text-center">
-                <button class="btn btn-default">Edit Room Note</button>
+                {{room.note}}</td>
+            <td title="''" filter="{ name: 'text'}" class="text-center">
+                <button class="btn btn-default"
+                data-ng-click="vm.onEditNoteButton_Click(room)">Edit Room Note</button>
             </td>
         </tr>
     </table>

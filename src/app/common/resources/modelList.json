@@ -1,0 +1,225 @@
+{
+  "user": {
+    "data": {
+      "email": "",
+      "password": ""
+    },
+    "sample": {
+      "email": "",
+      "password": ""
+    },
+    "validations": {}
+  },
+  "profile": {
+    "data": {
+      "firstName": "",
+      "lastName": "",
+      "email": ""
+    },
+    "sample": {
+      "firstName": "",
+      "lastName": "",
+      "email": ""
+    },
+    "validations": {}
+  },
+  "property": {
+    "data": {
+      "name": "",
+      "pricingPlanId": "",
+      "regionId": ""
+    },
+    "sample": {
+      "name": "",
+      "pricingPlanId": "0",
+      "regionId": "0"
+    },
+    "validations": {}
+  },
+  "generalInformation": {
+    "data": {
+      "companyLogo": "",
+      "timeZone": "",
+      "defaultCurrency": "",
+      "companyName": "",
+      "address": "",
+      "city": "",
+      "region": "",
+      "postalCode": "",
+      "phoneNumber": "",
+      "country": "",
+      "fax": "",
+      "email": "",
+      "website": ""
+    },
+    "sample": {
+      "companyLogo": "",
+      "timeZone": "Pacific/Midway",
+      "defaultCurrency": "1",
+      "companyName": "",
+      "address": "",
+      "city": "",
+      "region": "NA",
+      "postalCode": "",
+      "phoneNumber": "",
+      "country": "Afghanistan",
+      "fax": "",
+      "email": "",
+      "website": ""
+    },
+    "validations": {
+      "postalCode": {
+        "regex": {
+          "pattern": "",
+          "message": "PostalCode must be numbers."
+        }
+      }
+    }
+  },
+  "policies": {
+    "data": {
+      "checkInPolicy": "",
+      "reservationPolicy": ""
+    },
+    "sample": {
+      "checkInPolicy": "",
+      "reservationPolicy": ""
+    },
+    "validations": {}
+  },
+  "roomType": {
+    "data": {
+      "acronym": "",
+      "description": "",
+      "image": "",
+      "maxAdults": "",
+      "maxChildrent": "",
+      "nameType": "",
+      "showOn": ""
+    },
+    "sample": {
+      "acronym": "SHT",
+      "description": "",
+      "image": "",
+      "maxAdults": 0,
+      "maxChildrent": 0,
+      "nameType": "Sample Room Type",
+      "showOn": true
+    },
+    "validations": {}
+  },
+  "room": {
+    "data": {
+      "canBeSoldOnline": "",
+      "customerId": "",
+      "houseKeepingGroup": "",
+      "name": "",
+      "note": "",
+      "roomTypeId": "",
+      "roomStatusId": ""
+    },
+    "sample": {
+      "canBeSoldOnline": true,
+      "customerId": "",
+      "houseKeepingGroup": 1,
+      "name": "Sample Room",
+      "note": "",
+      "roomTypeId": "",
+      "roomStatusId": "0"
+    },
+    "validations": {}
+  },
+  "houseKeeping": {
+    "data": {
+      "clean": {
+        "time": "",
+        "active": ""
+      },
+      "housekeepingReport": ""
+    },
+    "sample": {
+      "clean": {
+        "time": "04:00AM",
+        "active": true
+      },
+      "housekeepingReport": "4"
+    },
+    "validations": {}
+  },
+  "nightAuditAndDate": {
+    "data": {
+      "sellingDate": "",
+      "nightAuditAutoRun": {
+        "active": "",
+        "timeId": ""
+      },
+      "nightAuditChargeInHouseOnly": "",
+      "nightAuditIgnoreCheckOutDate": "",
+      "defaultRoomChargeTypeId": "",
+      "nightAuditForceCheckOut": ""
+    },
+    "sample": {
+      "sellingDate": "29-11-2016",
+      "nightAuditAutoRun": {
+        "active": true,
+        "timeId": "1"
+      },
+      "nightAuditChargeInHouseOnly": true,
+      "nightAuditIgnoreCheckOutDate": true,
+      "defaultRoomChargeTypeId": "1",
+      "nightAuditForceCheckOut": true
+    },
+    "validations": {}
+  },
+  "invoiceEmail": {
+    "data": {
+      "sendInvoiceEmailAutomatically": "",
+      "askForReviewInInvoiceEmail": "",
+      "invoiceEmailHeader": ""
+    },
+    "sample": {
+      "sendInvoiceEmailAutomatically": false,
+      "askForReviewInInvoiceEmail": false,
+      "invoiceEmailHeader": ""
+    },
+    "validations": {}
+  },
+  "bookingConfirmationEmail": {
+    "data": {
+      "bookingConfirmationEmailHeader": ""
+    },
+    "sample": {
+      "bookingConfirmationEmailHeader": ""
+    },
+    "validations": {}
+  },
+  "invoice": {
+    "data": {
+      "invoiceHeader": ""
+    },
+    "sample": {},
+    "validations": {}
+  },
+  "customer": {
+    "data": {
+      "name": "",
+      "customerTypeId": "",
+      "email": "",
+      "phone": "",
+      "phone2": "",
+      "fax": "",
+      "address": "",
+      "address2": "",
+      "city": "",
+      "region": "",
+      "country": "",
+      "postalCode": "",
+      "creditCardCode": "",
+      "creditCardDate": "",
+      "cvc": "",
+      "note": ""
+    },
+    "sample": {},
+    "validations": {}
+  }
+}

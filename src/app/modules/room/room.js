@@ -7,17 +7,20 @@ define(function(require){
     var statusTemplate = require('text!./templates/room.status.html');
     var inventoryTemplate = require('text!./templates/room.inventory.html');
     var updateAvailableTemplate = require('text!./templates/updateavailable.html');
+    var roomNoteTemplate = require('text!./templates/roomNote.html');
     var tabTemplate = require('text!./templates/inventory.tab.html');
     var controller = require('./controllers/room');
     var statusController = require('./controllers/room.status');
     var inventoryController = require('./controllers/room.inventory');
     var updateAvailableController = require('./controllers/updateavailable');
+    var roomNoteController = require('./controllers/roomnote');
 
     //Đăng kí controller
     module.controller('RoomController', controller);
     module.controller('StatusController', statusController);
     module.controller('InventoryController', inventoryController);
     module.controller('UpdateAvailableController', updateAvailableController);
+    module.controller('RoomNoteController', roomNoteController);
 
     run.$inject = ['$templateCache'];
     function run($templateCache){
@@ -26,6 +29,7 @@ define(function(require){
         $templateCache.put('room/templates/room.inventory.html', inventoryTemplate);
         $templateCache.put('room/templates/inventory.tab.html', tabTemplate);
         $templateCache.put('room/templates/updateavailable.html', updateAvailableTemplate);
+        $templateCache.put('room/templates/roomnote.html', roomNoteTemplate);
     }
     module.run(run);
 
@@ -48,7 +52,8 @@ define(function(require){
                 views: {
                     'room': {
                         templateUrl: 'room/templates/room.status.html',
-                        controller: 'StatusController'
+                        controller: 'StatusController',
+                        controllerAs: 'vm'
                     }
                 }
             })

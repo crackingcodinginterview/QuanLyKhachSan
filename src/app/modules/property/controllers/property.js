@@ -2,43 +2,51 @@ define(function(require){
     'use strict';
 
     var angular = require('angular');
+    var _ = require('lodash');
 
-    ctrlFn.$inject = ['$scope', 'NgTableParams', '$uibModal', 'PropertyService'];
-    function ctrlFn($scope, NgTableParams, $uibModal, PropertyService) {
+    ctrlFn.$inject = ['$timeout', '$uibModal', 'PropertyService', 'UserContext', 'toaster', 'ajaxLoadingFactory'];
+    function ctrlFn($timeout, $uibModal, PropertyService, UserContext, toaster, ajaxLoadingFactory) {
         var vm = this;
-        //Nội dung của controller ghi ở đây
-        console.log('đang ở property');
+        var _userInfor = UserContext.getUserInfor();
 
+        function initModel() {
+
+        }
+        function onPageLoading(){
+            ajaxLoadingFactory.show();
+            initModel();
+            PropertyService.getAllProperty(_userInfor.userId)
+                .then(function(resp){
+                    $timeout(function () {
+                        vm.dataRoot = resp;
+                        ajaxLoadingFactory.hide();
+                    });
+                })
+        }
         function getNewProperty(){
             return $uibModal.open({
                 animation: true,
                 templateUrl: 'property/templates/newProperty.html',
                 controller: 'NewPropertyController',
                 controllerAs: 'vm',
-                size: 'lg'
+                size: 'lg',
+                resolve: {
+                    userId: function () {
+                        return _userInfor.userId;
+                    }
+                }
             });
         }
         function onCreateNewProperty(){
-            getNewProperty().result.then(function(){
-                debugger;
-            });
-        }
-
-        vm.onCreateNewProperty = onCreateNewProperty;
-
-        var vm = this;
-        $scope.dataRoot = [];
-        function init() {
-            PropertyService.getAllProperty()
-                .then(function(resp){ 
-                    $scope.dataRoot = resp;
-                    console.log("Get all customer success", resp);
+            getNewProperty().result
+                .then(function(newProperty){
+                    vm.dataRoot[_.keys(newProperty)[0]] = _.values(newProperty)[0];
+                    toaster.pop('success', 'Note', 'Add property success!');
                 })
-                .catch(function(error) {
-                    console.log("Get all customer error", error);
-                });;
+                .catch(function (error) {
+                    toaster.pop('error', 'Note', 'Add property fail!');
+                });
         }
-
         function getNewCustomerModal() {
             return $uibModal.open({
                 animation: true,
@@ -47,16 +55,13 @@ define(function(require){
                 controllerAs: 'vm',
             });
         }
-
         function onCreateNewCustomer() {
             getNewCustomerModal().result.then(function() {});
         }
-
+        vm.onCreateNewProperty = onCreateNewProperty;
         vm.onCreateNewCustomer = onCreateNewCustomer;
 
-        init();
-
-
+        onPageLoading();
     }
 
     return ctrlFn;

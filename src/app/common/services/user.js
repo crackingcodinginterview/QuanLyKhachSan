@@ -10,13 +10,13 @@ define(function (require) {
         var service = {};
 
         function login(email, password){
-            return $firebaseAuth().$signInWithEmailAndPassword(email, password);
+            return firebase.auth().signInWithEmailAndPassword(email, password);
         }
         function register(email, password){
-            return $firebaseAuth().$createUserWithEmailAndPassword(email, password);
+            return firebase.auth().createUserWithEmailAndPassword(email, password);
         }
         function resetPassword(email){
-            return $firebaseAuth().$sendPasswordResetEmail(email);
+            return firebase.auth().sendPasswordResetEmail(email);
         }
         function confirmChangePassword(oobCode, confirmNewPasswordViewModel){
             return firebase.auth().confirmPasswordReset(oobCode, confirmNewPasswordViewModel.newPassword);

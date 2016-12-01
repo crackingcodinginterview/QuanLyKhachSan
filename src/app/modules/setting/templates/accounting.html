@@ -3,7 +3,7 @@
             active="activePill"
             vertical="true"
             type="pills">
-        <uib-tab index="0" heading="Invoice">
+        <uib-tab index="0" heading="Invoice" data-ng-click="vm.onInvoiceTab_Click()">
             <ng-include src="'setting/templates/accounting/invoice.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Charge Types">
@@ -15,7 +15,7 @@
         <uib-tab index="3" heading="Payment Types">
             <ng-include src="'setting/templates/accounting/paymenttypes.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="4" heading="Customer Types">
+        <uib-tab index="4" heading="Customer Types" data-ng-click="vm.onCustomerTypeTab_Click()">
             <ng-include src="'setting/templates/accounting/customertypes.html'"></ng-include>
         </uib-tab>
         <uib-tab index="5" heading="Customer Fields">

@@ -7,7 +7,11 @@ define(function (require) {
         require('./profile'),
         require('./customer'),
         require('./subscription'),
-        require('./property')
+        require('./property'),
+        require('./room'),
+        require('./company'),
+        require('./email'),
+        require('./accounting')
     ]);
     return module.name;
 });

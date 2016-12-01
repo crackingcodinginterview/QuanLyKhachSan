@@ -8,6 +8,7 @@ define(function (require){
         require('./services/index'),
         require('./directives/index'),
         require('./context/index'),
+        require('./factories/index'),
     ]);
 
     return module.name;
